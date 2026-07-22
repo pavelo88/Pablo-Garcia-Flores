@@ -155,7 +155,7 @@ body {
 }
 
 
-.theme-light h1, .theme-light h2, .theme-light h3, .theme-light p { color: #1e293b !important; } .theme-light .text-sky-400 { color: #0284c7 !important; } .theme-light .text-slate-400 { color: #475569 !important; } .theme-light .text-[10px] { color: #475569 !important; }
+.theme-light h1, .theme-light h2, .theme-light h3, .theme-light p { color: #1e293b !important; } .theme-light .text-sky-400 { color: #0284c7 !important; } .theme-light .text-slate-400 { color: #475569 !important; } .theme-light .text-\[10px\] { color: #475569 !important; }
 
 /* FIX FOR GRADIENT HEADINGS IN LIGHT MODE */
 .theme-light .heading-main {
