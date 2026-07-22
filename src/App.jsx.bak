@@ -1,0 +1,379 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { jsPDF } from 'jspdf';
+import heroPhoto from './assets/hero.png';
+import { User, Briefcase, Database, Bot, MapPin, Send, Loader2, ArrowRight } from 'lucide-react';
+
+export default function App() {
+  const [activeTab, setActiveTab] = useState('profile');
+  const [messages, setMessages] = useState([
+    {
+      role: 'model',
+      text: 'Bienvenido. Soy la IA de Pablo para consultas sobre control patrimonial, normativa CGE y gestión de bienes públicos.'
+    }
+  ]);
+  const [inputValue, setInputValue] = useState('');
+  const [isGenerating, setIsGenerating] = useState(false);
+  const chatEndRef = useRef(null);
+  const contactEmail = 'pablofgarciaf@gmail.com';
+  const mailToLink = `mailto:${contactEmail}?subject=Contacto%20desde%20mi%20portafolio&body=Hola%20Pablo%2C%20quiero%20contactarte%20para%20conocer%20más%20sobre%20tus%20servicios.`;
+  const apiKey = import.meta.env.VITE_GROQ_API_KEY || '';
+
+  const handleDownloadCV = async () => {
+    const doc = new jsPDF({ unit: 'pt', format: 'letter' });
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const leftWidth = 210;
+
+    doc.setFillColor(10, 12, 18);
+    doc.rect(0, 0, pageWidth, pageHeight, 'F');
+
+    doc.setFillColor(18, 25, 42);
+    doc.roundedRect(20, 20, leftWidth, pageHeight - 40, 24, 24, 'F');
+    doc.setFillColor(255, 255, 255);
+    doc.roundedRect(leftWidth + 30, 20, pageWidth - leftWidth - 50, pageHeight - 40, 24, 24, 'F');
+
+    const loadImage = () =>
+      new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = heroPhoto;
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+      });
+
+    try {
+      const photo = await loadImage();
+      const photoWidth = 120;
+      const photoHeight = (photo.height / photo.width) * photoWidth;
+      doc.addImage(photo, 'PNG', 40, 40, photoWidth, photoHeight);
+    } catch (error) {
+      console.warn('No se pudo cargar la foto para el PDF:', error);
+    }
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(18);
+    doc.setTextColor(255, 255, 255);
+    doc.text('Pablo Fabricio García Flores', 40, 190);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('Analista de Activos Fijos', 40, 210);
+    doc.text('Quito, Ecuador', 40, 228);
+    doc.text(`Email: ${contactEmail}`, 40, 246);
+    doc.text('Celular: 0983992549', 40, 264);
+    doc.text('Cédula: 1721790721', 40, 282);
+    doc.text('Edad: 38 años', 40, 300);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.setTextColor(18, 25, 42);
+    doc.text('Currículum Vitae', leftWidth + 40, 50);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Resumen', leftWidth + 40, 86);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    const summary = 'Ingeniero en Administración con experiencia en control patrimonial, constatación física y auditorías en el sector público. Experto en normativa CGE, control interno y soluciones de inventario.';
+    doc.text(summary, leftWidth + 40, 104, { maxWidth: pageWidth - leftWidth - 80 });
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Experiencia', leftWidth + 40, 150);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('Consejo de la Judicatura — Analista de Activos Fijos', leftWidth + 40, 168);
+    doc.text('8 años liderando constatación física, conciliación contable y control patrimonial.', leftWidth + 40, 183, { maxWidth: pageWidth - leftWidth - 80 });
+    doc.text('Registro Civil del Ecuador — Gestión de Bienes', leftWidth + 40, 208);
+    doc.text('7 años en administración patrimonial y optimización de procesos.', leftWidth + 40, 223, { maxWidth: pageWidth - leftWidth - 80 });
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Formación', leftWidth + 40, 258);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('Ingeniería en Administración', leftWidth + 40, 276);
+    doc.text('Universidad XYZ, Ecuador', leftWidth + 40, 291);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Habilidades', leftWidth + 40, 330);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('• Control patrimonial', leftWidth + 40, 348);
+    doc.text('• Auditoría y constatación', leftWidth + 40, 363);
+    doc.text('• Integración de sistemas', leftWidth + 40, 378);
+    doc.text('• IA para bienes públicos', leftWidth + 40, 393);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Idiomas', leftWidth + 40, 429);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text('Español nativo', leftWidth + 40, 447);
+    doc.text('Inglés intermedio', leftWidth + 40, 462);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.setTextColor(100, 116, 255);
+    doc.text('AI prompt:', 40, pageHeight - 72);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(173, 184, 255);
+    doc.text('I am qualified for public asset control, audit, and government asset management.', 40, pageHeight - 56, { maxWidth: leftWidth - 40 });
+
+    doc.save('CV-Pablo-Fabricio-Garcia-Flores.pdf');
+  };
+
+  useEffect(() => {
+    if (activeTab === 'ai') {
+      chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, activeTab]);
+
+  const handleSendMessage = async (e) => {
+    e.preventDefault();
+    if (!inputValue.trim() || isGenerating) return;
+
+    const userText = inputValue.trim();
+    setInputValue('');
+    setMessages((prev) => [...prev, { role: 'user', text: userText }]);
+    setIsGenerating(true);
+
+    try {
+      const systemPrompt = `Actúa como un Auditor Senior y Especialista Jurídico de la Contraloría General del Estado de Ecuador. Basa tus respuestas en la Constitución de la República, el Acuerdo 067-CG-2018, NCI 400 y la Normativa de Contabilidad Gubernamental aplicable. Mantén un tono técnico, formal y fundamentado en derecho.`;
+      const chatHistoryForApi = messages.map((m) => ({
+        role: m.role === 'model' ? 'model' : 'user',
+        parts: [{ text: m.text }]
+      }));
+      chatHistoryForApi.push({ role: 'user', parts: [{ text: userText }] });
+
+      const payload = {
+        contents: chatHistoryForApi,
+        systemInstruction: { parts: [{ text: systemPrompt }] }
+      };
+
+      if (!apiKey) throw new Error('Falta la clave de API en .env');
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error('Error de conexión');
+      const result = await response.json();
+      const candidate = result.candidates?.[0];
+
+      if (candidate && candidate.content?.parts?.[0]?.text) {
+        setMessages((prev) => [...prev, { role: 'model', text: candidate.content.parts[0].text }]);
+      } else {
+        throw new Error('Respuesta inválida');
+      }
+    } catch (error) {
+      setMessages((prev) => [...prev, { role: 'model', text: 'En este momento los servidores de consulta se encuentran en mantenimiento preventivo. Por favor, intente de nuevo en unos instantes.' }]);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const navItems = [
+    { id: 'profile', icon: User, label: 'Perfil Ejecutivo' },
+    { id: 'experience', icon: Briefcase, label: 'Trayectoria' },
+    { id: 'systems', icon: Database, label: 'Arquitectura & Sistemas' },
+    { id: 'ai', icon: Bot, label: 'Consultor IA' }
+  ];
+
+  return (
+    <div className="relative min-h-screen overflow-hidden bg-[#020204] text-white selection:bg-blue-900 selection:text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(66,138,255,0.16),transparent_30%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(255,255,255,0.04),transparent_20%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-20">
+        <svg className="h-full w-full" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="60" y="280" width="180" height="520" rx="26" fill="rgba(15,23,42,0.4)" />
+          <rect x="240" y="330" width="140" height="470" rx="20" fill="rgba(15,23,42,0.35)" />
+          <rect x="410" y="250" width="230" height="560" rx="28" fill="rgba(15,23,42,0.45)" />
+          <rect x="690" y="280" width="180" height="470" rx="20" fill="rgba(15,23,42,0.35)" />
+          <rect x="900" y="220" width="250" height="560" rx="28" fill="rgba(15,23,42,0.4)" />
+          <rect x="1180" y="300" width="160" height="460" rx="20" fill="rgba(15,23,42,0.32)" />
+          <rect x="1360" y="340" width="120" height="430" rx="18" fill="rgba(15,23,42,0.28)" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-10">
+        <header className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className="text-xs uppercase tracking-[0.35em] text-slate-400">Analista de Activos Fijos</p>
+            <h1 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">Pablo Fabricio García Flores</h1>
+            <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
+              Control patrimonial y automatización de bienes públicos con foco en auditoría, normativa gubernamental y sistemas de gestión para el sector estatal.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id)}
+                className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] transition ${
+                  activeTab === item.id
+                    ? 'border-blue-400 bg-blue-500/15 text-blue-200'
+                    : 'border-white/10 text-slate-300 hover:border-blue-500/40 hover:text-white'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </header>
+
+        <main className="mt-10 grid gap-8 xl:grid-cols-[1.05fr_0.95fr]">
+          <section className="space-y-8">
+            <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 shadow-[0_50px_120px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+              <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+                <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-slate-950">
+                  <img src={heroPhoto} alt="Pablo Fabricio" className="h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/70" />
+                </div>
+                <div className="flex flex-col justify-between gap-6">
+                  <div>
+                    <div className="text-xs uppercase tracking-[0.35em] text-slate-400">Contacto directo</div>
+                    <div className="mt-5 space-y-3 text-sm text-slate-200">
+                      <div><span className="font-semibold text-white">Email:</span> {contactEmail}</div>
+                      <div><span className="font-semibold text-white">Celular:</span> 0983992549</div>
+                      <div>
+                        <span className="font-semibold text-white">LinkedIn:</span>{' '}
+                        <a href="https://www.linkedin.com/in/pablo-fabricio-garc%C3%ADa-flores/" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 underline">
+                          pablo-fabricio-garcía-flores
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3 sm:flex-row">
+                    <a href={mailToLink} className="inline-flex items-center justify-center rounded-3xl bg-blue-600 px-5 py-3 text-xs font-bold uppercase tracking-[0.35em] text-white hover:bg-blue-500 transition">
+                      <Send className="mr-2 h-4 w-4" />Enviar correo
+                    </a>
+                    <button type="button" onClick={handleDownloadCV} className="inline-flex items-center justify-center rounded-3xl border border-white/10 bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.35em] text-black hover:bg-slate-100 transition">
+                      Descargar PDF
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {activeTab === 'profile' && (
+              <div className="rounded-[32px] border border-white/10 bg-[#070b14]/90 p-10 shadow-[0_50px_120px_rgba(0,0,0,0.38)] backdrop-blur-xl">
+                <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-blue-400 mb-4">
+                  <MapPin className="h-4 w-4" /> Quito, Ecuador | Standard Gubernamental
+                </div>
+                <h2 className="text-4xl font-black text-white mb-6">Dirección sólida para bienes públicos</h2>
+                <p className="text-slate-300 leading-8">Ingeniero en Administración con amplia experiencia en control patrimonial estatal. Lidero la constatación física, conciliación contable y diseño de sistemas que soportan auditorías y transparencia en inventarios de entidades públicas.</p>
+                <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                  <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+                    <div className="text-4xl font-black text-white">15</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.35em] text-slate-400">Años en el sector público</div>
+                  </div>
+                  <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+                    <div className="text-4xl font-black text-white">0</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.35em] text-slate-400">Hallazgos en auditorías</div>
+                  </div>
+                  <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+                    <div className="text-4xl font-black text-white">AI / SAP</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.35em] text-slate-400">Sistemas & Desarrollo</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'experience' && (
+              <div className="rounded-[32px] border border-white/10 bg-[#070b14]/90 p-10 shadow-[0_50px_120px_rgba(0,0,0,0.38)] backdrop-blur-xl">
+                <h2 className="text-3xl font-black text-white tracking-tighter mb-8">Trayectoria Institucional</h2>
+                <div className="space-y-6">
+                  <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+                    <div className="text-xs uppercase tracking-[0.35em] text-blue-400 mb-3">8 años</div>
+                    <h3 className="text-2xl font-black text-white mb-3">Consejo de la Judicatura</h3>
+                    <p className="text-slate-300 leading-relaxed">Dirección técnica de constatación física y conciliación de inventarios. Responsable de la gestión patrimonial y control interno bajo normativa CGE.</p>
+                  </div>
+                  <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+                    <div className="text-xs uppercase tracking-[0.35em] text-slate-400 mb-3">7 años</div>
+                    <h3 className="text-2xl font-black text-white mb-3">Registro Civil del Ecuador</h3>
+                    <p className="text-slate-300 leading-relaxed">Administración patrimonial institucional y optimización de recursos mediante procesos normativos, inventarios y controles de bienes públicos.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'systems' && (
+              <div className="rounded-[32px] border border-white/10 bg-[#070b14]/90 p-10 shadow-[0_50px_120px_rgba(0,0,0,0.38)] backdrop-blur-xl">
+                <h2 className="text-3xl font-black text-white tracking-tighter mb-8">Arquitectura & Sistemas</h2>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+                    <div className="text-xs uppercase tracking-[0.35em] text-blue-400 mb-3">Automatización</div>
+                    <h3 className="text-2xl font-black text-white mb-3">Levantamiento inteligente</h3>
+                    <p className="text-slate-300 leading-relaxed">Implemento macros y validaciones que soportan códigos de barra, bases de datos y reportes para inventarios públicos.</p>
+                  </div>
+                  <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+                    <div className="text-xs uppercase tracking-[0.35em] text-blue-400 mb-3">IA normativa</div>
+                    <h3 className="text-2xl font-black text-white mb-3">Consultor legal</h3>
+                    <p className="text-slate-300 leading-relaxed">Configuro agentes de IA que ofrecen respuestas especiales sobre normativa CGE, NCI 400 y procedimientos de control patrimonial.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'ai' && (
+              <div className="rounded-[32px] border border-white/10 bg-[#070b14]/90 shadow-[0_50px_120px_rgba(0,0,0,0.38)] backdrop-blur-xl overflow-hidden">
+                <div className="p-10 border-b border-white/10">
+                  <div className="flex items-center gap-3 text-sm uppercase tracking-[0.35em] text-blue-400 mb-4">
+                    <Bot className="w-5 h-5" /> Consultor IA Normativo
+                  </div>
+                  <p className="text-slate-300 leading-7 max-w-2xl">Asistente conversacional para normas de control interno, bienes públicos y procedimientos de auditoría patrimonial.</p>
+                </div>
+                <div className="max-h-[60vh] overflow-y-auto p-6 space-y-5">
+                  {messages.map((m, idx) => (
+                    <div key={idx} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`max-w-[85%] rounded-3xl p-5 text-sm leading-relaxed border ${
+                        m.role === 'user'
+                          ? 'bg-blue-900/20 text-slate-200 border-blue-800/50 rounded-tr-none'
+                          : 'bg-[#11131a] text-slate-300 border-slate-800 rounded-bl-none'
+                      }`}>
+                        {m.role === 'model' && <div className="mb-2 text-xs uppercase tracking-[0.35em] text-blue-400">Auditor IA</div>}
+                        {m.text}
+                      </div>
+                    </div>
+                  ))}
+                  {isGenerating && (
+                    <div className="flex justify-start">
+                      <div className="flex items-center gap-3 rounded-3xl border border-slate-800 bg-[#11131a] p-5 text-slate-400">
+                        <Loader2 className="w-4 h-4 animate-spin text-blue-500" />
+                        <span className="text-xs uppercase tracking-[0.35em]">Consultando el marco legal...</span>
+                      </div>
+                    </div>
+                  )}
+                  <div ref={chatEndRef} />
+                </div>
+                <form onSubmit={handleSendMessage} className="p-6 border-t border-white/10 bg-[#050608] flex flex-col gap-4 sm:flex-row">
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder="Ej: ¿Cuándo es obligatoria la denuncia a fiscalía por pérdida de un bien?"
+                    className="flex-1 rounded-3xl border border-slate-800 bg-[#06080e] px-5 py-4 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isGenerating || !inputValue.trim()}
+                    className="inline-flex items-center justify-center rounded-3xl bg-blue-600 px-6 py-4 text-xs font-bold uppercase tracking-[0.35em] text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <Send className="mr-2 h-4 w-4" />Enviar
+                  </button>
+                </form>
+              </div>
+            )}
+          </section>
+        </main>
+      </div>
+    </div>
+  );
+}
