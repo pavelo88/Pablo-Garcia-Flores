@@ -8,7 +8,7 @@ export default function ChatTab({ messages, setMessages }) {
   const [questionCount, setQuestionCount] = useState(0);
   const chatEndRef = useRef(null);
   
-  const apiKey = import.meta.env.VITE_GROQ_API_KEY || '';
+  const apiKey = import.meta.env.GROQ_API_KEY || '';
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -38,7 +38,7 @@ export default function ChatTab({ messages, setMessages }) {
       }
 
       const payload = {
-        model: "llama3-8b-8192",
+        model: "llama-3.1-8b-instant",
         messages: [
           { role: 'system', content: currentSystemPrompt },
           ...chatHistoryForApi
@@ -67,8 +67,8 @@ export default function ChatTab({ messages, setMessages }) {
         throw new Error('Respuesta inválida');
       }
     } catch (error) {
-      console.error(error);
-      setMessages((prev) => [...prev, { role: 'assistant', text: 'En este momento los servidores de consulta se encuentran en mantenimiento preventivo. Por favor, intente de nuevo en unos instantes o póngase en contacto directamente vía WhatsApp.' }]);
+      console.error('Error de IA:', error);
+      setMessages((prev) => [...prev, { role: 'assistant', text: 'Tuvimos un error de conexión, pero ya estamos en línea. Por favor, reformula tu pregunta.' }]);
     } finally {
       setIsGenerating(false);
     }
@@ -86,7 +86,7 @@ export default function ChatTab({ messages, setMessages }) {
         </div>
       </div>
 
-      <div className="flex-1 bg-slate-950/50 rounded-[2rem] border border-white/5 p-4 lg:p-6 mb-4 overflow-y-auto min-h-[380px] shadow-inner space-y-4 custom-scrollbar">
+      <div className="flex-1 bg-slate-950/50 rounded-[2rem] border border-white/5 p-4 lg:p-6 mb-4 overflow-y-auto max-h-[50vh] shadow-inner space-y-4 custom-scrollbar">
         {messages.map((m, idx) => (
           <div key={idx} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div className={`max-w-[85%] rounded-2xl p-4 text-sm leading-relaxed border ${m.role === 'user'

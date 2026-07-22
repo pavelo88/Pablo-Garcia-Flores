@@ -154,3 +154,12 @@ body {
   background: rgba(0, 0, 0, 0.25);
 }
 
+
+.theme-light h1, .theme-light h2, .theme-light h3, .theme-light p { color: #1e293b !important; } .theme-light .text-sky-400 { color: #0284c7 !important; } .theme-light .text-slate-400 { color: #475569 !important; } .theme-light .text-[10px] { color: #475569 !important; }
+
+/* FIX FOR GRADIENT HEADINGS IN LIGHT MODE */
+.theme-light .heading-main {
+  background: linear-gradient(to bottom right, #0f172a, #334155) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}

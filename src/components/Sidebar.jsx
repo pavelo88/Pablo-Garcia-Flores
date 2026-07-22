@@ -5,7 +5,7 @@ const navItems = [
   { id: 'profile', icon: User, label: 'Perfil Ejecutivo' },
   { id: 'experience', icon: Briefcase, label: 'Trayectoria' },
   { id: 'systems', icon: Database, label: 'Arquitectura' },
-  { id: 'ai', icon: Bot, label: 'Consultor IA' }
+  // { id: 'ai', icon: Bot, label: 'Consultor IA' } // Desactivado temporalmente
 ];
 
 export default function Sidebar({ activeTab, setActiveTab, isMobileMenuOpen, setIsMobileMenuOpen, theme, setTheme }) {
@@ -13,7 +13,7 @@ export default function Sidebar({ activeTab, setActiveTab, isMobileMenuOpen, set
     <aside className={`
       glass-panel p-8 lg:p-10 flex flex-col justify-start
       fixed lg:relative inset-x-4 top-20 bottom-4 lg:inset-auto 
-      z-30 transition-all duration-300 transform overflow-y-auto custom-scrollbar
+      z-30 transition-all duration-300 transform lg:h-full overflow-hidden
       ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0 pointer-events-none lg:pointer-events-auto lg:translate-y-0 lg:opacity-100'}
     `}>
       <div className="absolute top-6 right-6 hidden lg:block">
