@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
+import ContactButtons from '../ContactButtons';
 
 export default function ProfileTab() {
   return (
@@ -30,6 +31,9 @@ export default function ProfileTab() {
           <div className="text-[10px] tracking-[0.2em] uppercase text-slate-400">Sistemas & SAP</div>
         </div>
       </div>
+
+      {/* Los 3 botones agregados debajo de la sección Perfil Ejecutivo */}
+      <ContactButtons />
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 // Components
-import Fab from './components/Fab';
 import MobileHeader from './components/MobileHeader';
 import Sidebar from './components/Sidebar';
 import ProfileTab from './components/tabs/ProfileTab';
@@ -12,7 +11,6 @@ import ChatTab from './components/tabs/ChatTab';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('profile');
-  const [isFabOpen, setIsFabOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState('dark');
   
@@ -47,8 +45,6 @@ export default function App() {
     <>
       <div className="bg-buildings"></div>
       <div className="bg-overlay"></div>
-
-      <Fab isFabOpen={isFabOpen} setIsFabOpen={setIsFabOpen} />
 
       <MobileHeader 
         isMobileMenuOpen={isMobileMenuOpen} 

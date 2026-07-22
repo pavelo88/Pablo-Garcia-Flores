@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactButtons from '../ContactButtons';
 
 export default function SystemsTab() {
   return (
@@ -24,6 +25,9 @@ export default function SystemsTab() {
           </p>
         </div>
       </div>
+
+      {/* Los 3 botones agregados debajo de la sección Arquitectura */}
+      <ContactButtons />
     </div>
   );
 }

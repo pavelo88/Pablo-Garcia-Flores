@@ -1,7 +1,5 @@
 import React from 'react';
-import { User, Briefcase, Database, Bot, Download, Phone, Link, Sun, Moon } from 'lucide-react';
-import { WHATSAPP_LINK, LINKEDIN_URL, PHONE_NUMBER } from '../utils/constants';
-import { handleDownloadCV } from '../utils/pdfGenerator';
+import { User, Briefcase, Database, Bot, Sun, Moon } from 'lucide-react';
 
 const navItems = [
   { id: 'profile', icon: User, label: 'Perfil Ejecutivo' },
@@ -64,31 +62,6 @@ export default function Sidebar({ activeTab, setActiveTab, isMobileMenuOpen, set
             );
           })}
         </nav>
-
-        <div className="space-y-3 mt-auto">
-          <a 
-            href={WHATSAPP_LINK} 
-            target="_blank"
-            rel="noreferrer"
-            className="w-full flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white py-3.5 rounded-2xl font-medium text-sm border border-white/10 transition-all backdrop-blur-md"
-          >
-            <Phone className="w-4 h-4 text-sky-400" /> {PHONE_NUMBER}
-          </a>
-          <a 
-            href={LINKEDIN_URL} 
-            target="_blank"
-            rel="noreferrer"
-            className="w-full flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white py-3.5 rounded-2xl font-medium text-sm border border-white/10 transition-all backdrop-blur-md"
-          >
-            <Link className="w-4 h-4 text-blue-400" /> LinkedIn
-          </a>
-          <button
-            onClick={handleDownloadCV}
-            className="w-full flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white py-3.5 rounded-2xl font-medium text-sm border border-white/10 transition-all backdrop-blur-md"
-          >
-            <Download className="w-4 h-4 text-emerald-400" /> Descargar PDF
-          </button>
-        </div>
       </div>
     </aside>
   );
