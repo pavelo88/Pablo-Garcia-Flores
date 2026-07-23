@@ -4,7 +4,7 @@ import ContactButtons from '../ContactButtons';
 
 export default function SystemsTab() {
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col justify-between h-full">
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 lg:flex lg:flex-col lg:justify-between lg:h-full">
       <div>
         <div className="flex items-center gap-2 text-xs uppercase font-bold tracking-[0.2em] text-purple-400 mb-3">
           <Cpu className="w-4 h-4" /> Innovación & Transformación Digital
@@ -20,11 +20,11 @@ export default function SystemsTab() {
 
         {/* Systems Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-          
+
           {/* Card 1: Levantamiento Inteligente */}
           <div className="executive-card p-6 lg:p-8 rounded-3xl relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl group-hover:bg-sky-500/20 transition-all"></div>
-            
+
             <div className="flex items-center justify-between mb-4">
               <div className="p-3 bg-sky-500/10 border border-sky-400/20 rounded-2xl text-sky-400">
                 <QrCode className="w-6 h-6" />

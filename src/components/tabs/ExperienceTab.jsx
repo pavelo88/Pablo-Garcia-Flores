@@ -20,7 +20,7 @@ export default function ExperienceTab() {
 
         {/* Executive Timeline */}
         <div className="space-y-6 max-w-4xl relative before:absolute before:inset-0 before:left-3 sm:before:left-4 before:w-0.5 before:bg-gradient-to-b before:from-sky-500 before:via-blue-500 before:to-transparent before:z-0">
-          
+
           {/* Item 1: Consejo de la Judicatura */}
           <div className="relative pl-8 sm:pl-10 group">
             <div className="absolute left-0 top-1.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-slate-900 border-2 border-sky-400 flex items-center justify-center text-sky-400 z-10 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all shadow-[0_0_15px_rgba(56,189,248,0.4)]">
@@ -102,7 +102,6 @@ export default function ExperienceTab() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
 

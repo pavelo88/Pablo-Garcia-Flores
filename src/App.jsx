@@ -24,7 +24,7 @@ export default function App() {
     if (mainRef.current) {
       mainRef.current.scrollTo({ top: 0 });
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
   }, [activeTab]);
 
   const renderTabContent = () => {
@@ -43,7 +43,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <div className="h-screen w-screen flex flex-col overflow-hidden relative">
       {/* Background Architectural Layer & Dynamic Gradient Overlay */}
       <div className="bg-buildings"></div>
       <div className="bg-overlay"></div>
@@ -59,9 +59,9 @@ export default function App() {
         setActiveTab={setActiveTab}
       />
 
-      {/* Main Responsive Grid Layout */}
-      <div className="min-h-screen pt-24 lg:pt-10 pb-6 px-4 lg:pb-10 lg:px-10 relative flex items-center justify-center">
-        <div className="w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[330px_1fr] gap-6 lg:gap-8 lg:h-[86vh]">
+      {/* Responsive Layout Container (Clipping viewport scroll on mobile so text never goes under header) */}
+      <div className="flex-1 pt-28 lg:pt-10 pb-6 px-4 lg:px-10 overflow-hidden flex items-center justify-center z-10">
+        <div className="w-full h-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[330px_1fr] gap-6 lg:gap-8 lg:h-[86vh]">
 
           {/* Desktop Executive Sidebar */}
           <Sidebar 
@@ -83,6 +83,6 @@ export default function App() {
 
         </div>
       </div>
-    </>
+    </div>
   );
 }

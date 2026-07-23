@@ -79,7 +79,7 @@ export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
                       <Icon className={`w-4 h-4 ${isActive ? 'text-sky-300' : 'text-slate-400'}`} />
                       <span>{item.label}</span>
                     </div>
-                    <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${isActive ? 'bg-sky-400/30 text-sky-200' : 'bg-slate-800/60 text-slate-400'
+                    <span className={`text-[9px] font-extrabold py-0.5 rounded-full w-20 min-w-[80px] text-center shrink-0 ${isActive ? 'bg-sky-400/30 text-sky-200' : 'bg-slate-800/60 text-slate-400'
                       }`}>
                       {item.badge}
                     </span>

@@ -27,7 +27,7 @@ export default function ReferencesTab() {
   ];
 
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col justify-between h-full">
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 lg:flex lg:flex-col lg:justify-between lg:h-full">
       <div>
         <div className="flex items-center gap-2 text-xs uppercase font-bold tracking-[0.2em] text-emerald-400 mb-3">
           <UserCheck className="w-4 h-4" /> Aval & Respaldo Profesional
