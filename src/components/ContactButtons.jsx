@@ -1,38 +1,54 @@
 import React from 'react';
-import { MessageSquare, Globe, Download } from 'lucide-react';
-import { WHATSAPP_LINK, LINKEDIN_URL } from '../utils/constants';
+import { Phone, Globe, Mail, Download } from 'lucide-react';
+import { LINKEDIN_URL, PHONE_NUMBER, MAIL_TO_LINK } from '../utils/constants';
 import { handleDownloadCV } from '../utils/pdfGenerator';
 
 export default function ContactButtons() {
   return (
-    <div className="flex flex-col sm:flex-row gap-3.5 mt-8 pt-6 border-t border-white/10">
-      <a 
-        href={WHATSAPP_LINK} 
-        target="_blank"
-        rel="noreferrer"
-        className="flex-1 flex items-center justify-center gap-2.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 hover:text-white py-3.5 px-4 rounded-2xl font-bold text-sm border border-emerald-500/30 transition-all shadow-md hover:shadow-emerald-500/20 hover:-translate-y-0.5 active:scale-95"
-      >
-        <MessageSquare className="w-4 h-4 text-emerald-400" />
-        <span>Contactar por WhatsApp</span>
-      </a>
+    <div className="mt-8 pt-6 pb-6 mb-8 border-t border-white/10 flex flex-col gap-3">
+      <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1 px-1">
+        Contacto Directo & Descargas
+      </div>
 
-      <a 
-        href={LINKEDIN_URL} 
-        target="_blank"
-        rel="noreferrer"
-        className="flex-1 flex items-center justify-center gap-2.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 hover:text-white py-3.5 px-4 rounded-2xl font-bold text-sm border border-blue-500/30 transition-all shadow-md hover:shadow-blue-500/20 hover:-translate-y-0.5 active:scale-95"
-      >
-        <Globe className="w-4 h-4 text-blue-400" />
-        <span>Perfil LinkedIn</span>
-      </a>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {/* 1. Llamada Directa */}
+        <a 
+          href={`tel:${PHONE_NUMBER}`}
+          className="flex items-center justify-center gap-2 bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 hover:text-white py-3.5 px-3 rounded-2xl font-bold text-xs border border-sky-400/30 transition-all shadow-sm hover:shadow-sky-500/20 hover:-translate-y-0.5 active:scale-95"
+        >
+          <Phone className="w-4 h-4 text-sky-400 shrink-0" />
+          <span>Llamada</span>
+        </a>
 
-      <button
-        onClick={handleDownloadCV}
-        className="flex-1 flex items-center justify-center gap-2.5 bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 hover:text-white py-3.5 px-4 rounded-2xl font-bold text-sm border border-sky-400/30 transition-all shadow-md hover:shadow-sky-500/20 hover:-translate-y-0.5 active:scale-95"
-      >
-        <Download className="w-4 h-4 text-sky-400" />
-        <span>Descargar CV (PDF)</span>
-      </button>
+        {/* 2. LinkedIn */}
+        <a 
+          href={LINKEDIN_URL} 
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-center gap-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 hover:text-white py-3.5 px-3 rounded-2xl font-bold text-xs border border-blue-500/30 transition-all shadow-sm hover:shadow-blue-500/20 hover:-translate-y-0.5 active:scale-95"
+        >
+          <Globe className="w-4 h-4 text-blue-400 shrink-0" />
+          <span>LinkedIn</span>
+        </a>
+
+        {/* 3. Correo Email */}
+        <a 
+          href={MAIL_TO_LINK}
+          className="flex items-center justify-center gap-2 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 hover:text-white py-3.5 px-3 rounded-2xl font-bold text-xs border border-purple-400/30 transition-all shadow-sm hover:shadow-purple-500/20 hover:-translate-y-0.5 active:scale-95"
+        >
+          <Mail className="w-4 h-4 text-purple-400 shrink-0" />
+          <span>Correo</span>
+        </a>
+
+        {/* 4. Descargar CV (PDF) */}
+        <button
+          onClick={handleDownloadCV}
+          className="flex items-center justify-center gap-2 bg-cyan-500/15 hover:bg-cyan-500/25 text-white py-3.5 px-3 rounded-2xl font-bold text-xs border border-cyan-400/40 transition-all shadow-sm hover:shadow-cyan-500/20 hover:-translate-y-0.5 active:scale-95"
+        >
+          <Download className="w-4 h-4 text-cyan-300 shrink-0" />
+          <span>Descargar CV</span>
+        </button>
+      </div>
     </div>
   );
 }

@@ -3,17 +3,17 @@
 :root,
 .theme-dark {
   --bg-page: #030712;
-  --bg-buildings-filter: brightness(0.45) contrast(1.15) saturate(0.85);
-  --bg-overlay-gradient: linear-gradient(135deg, rgba(3, 7, 18, 0.82) 0%, rgba(15, 23, 42, 0.68) 50%, rgba(3, 7, 18, 0.88) 100%);
+  --bg-buildings-filter: brightness(0.55) contrast(1.18) saturate(0.9);
+  --bg-overlay-gradient: linear-gradient(135deg, rgba(3, 7, 18, 0.72) 0%, rgba(15, 23, 42, 0.52) 50%, rgba(3, 7, 18, 0.78) 100%);
   
-  --glass-bg: rgba(15, 23, 42, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(15, 23, 42, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.12);
   --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
   
-  --card-bg: rgba(15, 23, 42, 0.45);
-  --card-bg-hover: rgba(30, 41, 59, 0.65);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-border-hover: rgba(56, 189, 248, 0.4);
+  --card-bg: rgba(15, 23, 42, 0.4);
+  --card-bg-hover: rgba(30, 41, 59, 0.6);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-border-hover: rgba(56, 189, 248, 0.45);
   
   --text-main: #f8fafc;
   --text-heading-gradient: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
@@ -24,8 +24,8 @@
   --accent-light: #7dd3fc;
   --accent-glow: rgba(56, 189, 248, 0.35);
   
-  --scrollbar-thumb: rgba(255, 255, 255, 0.15);
-  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.3);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
   
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -33,17 +33,17 @@
 
 .theme-light {
   --bg-page: #f8fafc;
-  --bg-buildings-filter: brightness(1.05) contrast(1.02) saturate(0.8);
-  --bg-overlay-gradient: linear-gradient(135deg, rgba(248, 250, 252, 0.82) 0%, rgba(241, 245, 249, 0.75) 50%, rgba(248, 250, 252, 0.88) 100%);
+  --bg-buildings-filter: brightness(1.08) contrast(1.05) saturate(0.85);
+  --bg-overlay-gradient: linear-gradient(135deg, rgba(248, 250, 252, 0.68) 0%, rgba(241, 245, 249, 0.58) 50%, rgba(248, 250, 252, 0.72) 100%);
   
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-border: rgba(15, 23, 42, 0.1);
   --glass-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
   
-  --card-bg: rgba(255, 255, 255, 0.75);
-  --card-bg-hover: rgba(241, 245, 249, 0.9);
-  --card-border: rgba(15, 23, 42, 0.08);
-  --card-border-hover: rgba(2, 132, 199, 0.4);
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --card-bg-hover: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(15, 23, 42, 0.09);
+  --card-border-hover: rgba(2, 132, 199, 0.45);
   
   --text-main: #0f172a;
   --text-heading-gradient: linear-gradient(135deg, #0f172a 0%, #334155 100%);
@@ -54,8 +54,8 @@
   --accent-light: #0369a1;
   --accent-glow: rgba(2, 132, 199, 0.2);
   
-  --scrollbar-thumb: rgba(15, 23, 42, 0.2);
-  --scrollbar-thumb-hover: rgba(15, 23, 42, 0.35);
+  --scrollbar-thumb: rgba(15, 23, 42, 0.22);
+  --scrollbar-thumb-hover: rgba(15, 23, 42, 0.4);
 }
 
 * {
@@ -90,16 +90,16 @@ body {
   inset: 0;
   z-index: -1;
   background: var(--bg-overlay-gradient);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   transition: background 0.5s ease;
 }
 
 /* Utilities */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   border-radius: 24px;
@@ -109,8 +109,8 @@ body {
 .executive-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -126,6 +126,36 @@ body {
   background: var(--text-heading-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* LED Glow Pulse & Traveling Light Border Animation */
+@keyframes led-border-glow {
+  0% {
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.4), inset 0 0 8px rgba(56, 189, 248, 0.2);
+    border-color: rgba(56, 189, 248, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(56, 189, 248, 0.95), 0 0 35px rgba(14, 165, 233, 0.7), inset 0 0 12px rgba(56, 189, 248, 0.4);
+    border-color: rgba(125, 211, 252, 1);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.4), inset 0 0 8px rgba(56, 189, 248, 0.2);
+    border-color: rgba(56, 189, 248, 0.8);
+  }
+}
+
+.led-button {
+  position: relative;
+  animation: led-border-glow 2.2s infinite ease-in-out;
+}
+
+/* Hide horizontal scrollbar on mobile pills */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Custom Scrollbar */
@@ -164,28 +194,28 @@ body {
 }
 .theme-light .border-white\/5,
 .theme-light .border-white\/10 {
-  border-color: rgba(15, 23, 42, 0.08) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
 }
 .theme-light .bg-white\/5 {
-  background-color: rgba(15, 23, 42, 0.04) !important;
+  background-color: rgba(15, 23, 42, 0.05) !important;
 }
 .theme-light .hover\:bg-white\/10:hover {
-  background-color: rgba(15, 23, 42, 0.08) !important;
+  background-color: rgba(15, 23, 42, 0.09) !important;
 }
 .theme-light .bg-slate-900\/40,
 .theme-light .bg-slate-950\/50,
 .theme-light .bg-slate-800\/50,
 .theme-light .bg-slate-900\/50 {
-  background-color: rgba(255, 255, 255, 0.85) !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
 }
 .theme-light .bg-sky-600\/20,
 .theme-light .bg-sky-500\/10 {
-  background-color: rgba(2, 132, 199, 0.12) !important;
+  background-color: rgba(2, 132, 199, 0.15) !important;
 }
 .theme-light .text-sky-400,
 .theme-light .text-sky-300 {
   color: #0284c7 !important;
 }
 .theme-light .border-slate-700 {
-  border-color: rgba(15, 23, 42, 0.12) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
 }

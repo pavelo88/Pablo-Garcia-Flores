@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 // Components
@@ -12,13 +12,20 @@ import ReferencesTab from './components/tabs/ReferencesTab';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('profile');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isFabOpen, setIsFabOpen] = useState(false);
   const [theme, setTheme] = useState('dark');
+  const mainRef = useRef(null);
 
   useEffect(() => {
     document.documentElement.className = theme === 'light' ? 'theme-light' : 'theme-dark';
   }, [theme]);
+
+  // Scroll to top on both inner glass container and mobile window viewport when changing tabs
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollTo({ top: 0 });
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeTab]);
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -41,13 +48,11 @@ export default function App() {
       <div className="bg-buildings"></div>
       <div className="bg-overlay"></div>
 
-      {/* Floating Action Button */}
-      <Fab isFabOpen={isFabOpen} setIsFabOpen={setIsFabOpen} />
+      {/* Floating Action Button (Single WhatsApp Floating Bubble) */}
+      <Fab />
 
       {/* Mobile Top Header Navigation */}
       <MobileHeader 
-        isMobileMenuOpen={isMobileMenuOpen} 
-        setIsMobileMenuOpen={setIsMobileMenuOpen} 
         theme={theme} 
         setTheme={setTheme} 
         activeTab={activeTab}
@@ -55,22 +60,25 @@ export default function App() {
       />
 
       {/* Main Responsive Grid Layout */}
-      <div className="min-h-screen pt-28 lg:pt-10 pb-6 px-4 lg:pb-10 lg:px-10 relative flex items-center justify-center">
-        <div className="w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 lg:gap-8 lg:h-[86vh]">
+      <div className="min-h-screen pt-24 lg:pt-10 pb-6 px-4 lg:pb-10 lg:px-10 relative flex items-center justify-center">
+        <div className="w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[330px_1fr] gap-6 lg:gap-8 lg:h-[86vh]">
 
-          {/* Executive Sidebar / Mobile Drawer */}
+          {/* Desktop Executive Sidebar */}
           <Sidebar 
             activeTab={activeTab} 
             setActiveTab={setActiveTab} 
-            isMobileMenuOpen={isMobileMenuOpen} 
-            setIsMobileMenuOpen={setIsMobileMenuOpen} 
             theme={theme} 
             setTheme={setTheme} 
           />
 
           {/* Primary Viewport Content Glass Panel */}
-          <main className="glass-panel p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-full overflow-y-auto custom-scrollbar">
-            {renderTabContent()}
+          <main className="glass-panel overflow-hidden flex flex-col h-full rounded-3xl border border-white/10 relative">
+            <div 
+              ref={mainRef}
+              className="p-6 sm:p-8 lg:p-10 flex-1 overflow-y-auto custom-scrollbar scroll-smooth flex flex-col justify-between"
+            >
+              {renderTabContent()}
+            </div>
           </main>
 
         </div>
