@@ -8,21 +8,13 @@ import Sidebar from './components/Sidebar';
 import ProfileTab from './components/tabs/ProfileTab';
 import ExperienceTab from './components/tabs/ExperienceTab';
 import SystemsTab from './components/tabs/SystemsTab';
-// import ChatTab from './components/tabs/ChatTab'; // Desactivado temporalmente
+import ReferencesTab from './components/tabs/ReferencesTab';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('profile');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isFabOpen, setIsFabOpen] = useState(false);
   const [theme, setTheme] = useState('dark');
-  
-  // Lift chat messages state so they persist across tab switches
-  const [messages, setMessages] = useState([
-    {
-      role: 'assistant',
-      text: 'Bienvenido. Soy la IA de Pablo para consultas sobre control patrimonial, normativa CGE y gestión de bienes públicos.'
-    }
-  ]);
 
   useEffect(() => {
     document.documentElement.className = theme === 'light' ? 'theme-light' : 'theme-dark';
@@ -36,10 +28,8 @@ export default function App() {
         return <ExperienceTab />;
       case 'systems':
         return <SystemsTab />;
-      /* 
-      case 'ai':
-        return <ChatTab messages={messages} setMessages={setMessages} />;
-      */
+      case 'references':
+        return <ReferencesTab />;
       default:
         return <ProfileTab />;
     }
@@ -47,21 +37,28 @@ export default function App() {
 
   return (
     <>
+      {/* Background Architectural Layer & Dynamic Gradient Overlay */}
       <div className="bg-buildings"></div>
       <div className="bg-overlay"></div>
 
+      {/* Floating Action Button */}
       <Fab isFabOpen={isFabOpen} setIsFabOpen={setIsFabOpen} />
 
+      {/* Mobile Top Header Navigation */}
       <MobileHeader 
         isMobileMenuOpen={isMobileMenuOpen} 
         setIsMobileMenuOpen={setIsMobileMenuOpen} 
         theme={theme} 
         setTheme={setTheme} 
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
       />
 
-      <div className="min-h-screen pt-20 pb-4 px-4 lg:pt-12 lg:pb-12 lg:px-12 relative flex items-start justify-center overflow-hidden">
-        <div className="w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 lg:gap-8 lg:h-[84vh]">
+      {/* Main Responsive Grid Layout */}
+      <div className="min-h-screen pt-28 lg:pt-10 pb-6 px-4 lg:pb-10 lg:px-10 relative flex items-center justify-center">
+        <div className="w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 lg:gap-8 lg:h-[86vh]">
 
+          {/* Executive Sidebar / Mobile Drawer */}
           <Sidebar 
             activeTab={activeTab} 
             setActiveTab={setActiveTab} 
@@ -71,7 +68,8 @@ export default function App() {
             setTheme={setTheme} 
           />
 
-          <main className="glass-panel p-8 lg:p-12 flex flex-col justify-start h-full overflow-y-auto custom-scrollbar">
+          {/* Primary Viewport Content Glass Panel */}
+          <main className="glass-panel p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-full overflow-y-auto custom-scrollbar">
             {renderTabContent()}
           </main>
 
