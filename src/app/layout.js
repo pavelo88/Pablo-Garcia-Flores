@@ -3,7 +3,7 @@ export const metadata = {
   description: 'Ingeniero especialista en Control Patrimonial Estatal y Arquitecto Full-Stack',
 }
 
-import '../index.css';
+import './globals.css';
 
 export default function RootLayout({ children }) {
   return (
