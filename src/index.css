@@ -61,9 +61,15 @@
   --card-border-hover: rgba(2, 132, 199, 0.4);
 
   --text-main: #0f172a;
-  --text-heading-gradient: linear-gradient(135deg, #0f172a 0%, #334155 100%);
-  --text-muted: #475569;
-  --text-subtle: #64748b;
+  --text-heading-gradient: linear-gradient(135deg, #0f172a 0%, #030712 100%);
+  
+  /* -------------------------------------------------------------------------
+     TEXTO SECUNDARIO / GRIS EN MODO CLARO
+     Modifica estos valores hexadecimales (#1e293b y #334155) para hacer las
+     letras grises aún más oscuras (más tiradas al negro) o más claras.
+     ------------------------------------------------------------------------- */
+  --text-muted: #1e293b;   /* Texto secundario (antes #475569) */
+  --text-subtle: #334155;  /* Texto de menor importancia (antes #64748b) */
 
   --accent: #0284c7;
   --accent-light: #0369a1;
@@ -195,15 +201,15 @@ body {
 
 .theme-light .text-slate-200,
 .theme-light .text-slate-300 {
-  color: #334155 !important;
+  color: #0f172a !important; /* Texto principal oscuro (antes #334155) */
 }
 
 .theme-light .text-slate-400 {
-  color: #475569 !important;
+  color: #1e293b !important; /* Texto secundario oscuro (antes #475569) */
 }
 
 .theme-light .text-slate-500 {
-  color: #64748b !important;
+  color: #334155 !important; /* Texto sutil oscuro (antes #64748b) */
 }
 
 .theme-light .border-white\/5,

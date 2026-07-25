@@ -40,7 +40,7 @@ export default function MobileHeader({ theme, setTheme, activeTab, setActiveTab 
 
           <div>
             <h1 className="text-sm font-extrabold text-white theme-light:text-slate-900 leading-none flex items-center gap-1 group-hover:text-sky-300 transition-colors">
-              Pablo García <Sparkles className="w-3 h-3 text-sky-400 inline animate-pulse" />
+              Pablo García
             </h1>
             <p className="text-[10px] font-bold text-sky-400 tracking-tight mt-0.5">
               Ing. Administración
