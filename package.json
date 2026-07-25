@@ -1,0 +1,32 @@
+{
+  "name": "mi-portafolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "dompurify": "^3.4.12",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^1.25.0",
+    "next": "^16.2.11",
+    "pdf2json": "^4.0.3",
+    "playwright": "^1.62.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.5.4",
+    "oxlint": "^1.71.0",
+    "postcss": "^8.5.23",
+    "tailwindcss": "^4.3.3"
+  }
+}

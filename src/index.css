@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* =========================================================================
+   GUÍA DE TRANSPARENCIAS DE LOS CUADROS DE CRISTAL (GLASS PANEL)
+   =========================================================================
+   Si quieres hacer las cajas de cristal más o menos transparentes:
+   - Para MODO OSCURO: Modifica la variable "--glass-bg" en la sección de ".theme-dark" abajo (Línea 17).
+   - Para MODO CLARO: Modifica la variable "--glass-bg" en la sección de ".theme-light" abajo (Línea 49).
+   - Modifica el último número (decimal de opacidad, Ej: 0.22 o 0.28). Menor número = más transparente.
+   ========================================================================= */
+
+:root,
+.theme-dark {
+  --bg-page: #030712;
+  --bg-buildings-filter: brightness(0.75) contrast(1.15) saturate(1.0);
+  --bg-overlay-gradient: linear-gradient(135deg, rgba(3, 7, 18, 0.45) 0%, rgba(15, 23, 42, 0.25) 50%, rgba(3, 7, 18, 0.5) 100%);
+
+  /* ---> MODO OSCURO: TRANSPARENCIA DEL CUADRO DE CRISTAL PRINCIPAL <--- */
+  --glass-bg: rgba(15, 23, 42, 0.22);
+  /* Modifica este 0.22 para cambiar la transparencia */
+
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+
+  --card-bg: rgba(15, 23, 42, 0.35);
+  --card-bg-hover: rgba(30, 41, 59, 0.55);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(56, 189, 248, 0.4);
+
+  --text-main: #f8fafc;
+  --text-heading-gradient: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+
+  --accent: #38bdf8;
+  --accent-light: #7dd3fc;
+  --accent-glow: rgba(56, 189, 248, 0.3);
+
+  /* ---> COLORES DINÁMICOS PARA TEXTOS Y FOTO <--- */
+  --color-dynamic-role: #38bdf8; /* sky-400 */
+  --color-dynamic-badge: #7dd3fc; /* sky-300 */
+  --color-dynamic-avatar: rgba(56, 189, 248, 0.6); /* sky-400/60 */
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+.theme-light {
+  --bg-page: #f8fafc;
+  --bg-buildings-filter: brightness(1.02) contrast(1.02) saturate(1.0);
+  --bg-overlay-gradient: linear-gradient(135deg, rgba(248, 250, 252, 0.3) 0%, rgba(241, 245, 249, 0.2) 50%, rgba(248, 250, 252, 0.32) 100%);
+
+  /* ---> MODO CLARO: TRANSPARENCIA DEL CUADRO DE CRISTAL PRINCIPAL <--- */
+  --glass-bg: rgba(255, 255, 255, 0.29);
+  /* Modifica este 0.28 para cambiar la transparencia */
+
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+
+  --card-bg: rgba(255, 255, 255, 0.45);
+  --card-bg-hover: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --card-border-hover: rgba(2, 132, 199, 0.4);
+
+  --text-main: #0f172a;
+  --text-heading-gradient: linear-gradient(135deg, #0f172a 0%, #030712 100%);
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+
+  --accent: #0284c7;
+  --accent-light: #38bdf8;
+  --accent-glow: rgba(2, 132, 199, 0.2);
+
+  /* ---> COLORES DINÁMICOS PARA TEXTOS Y FOTO (MODO CLARO) <--- */
+  --color-dynamic-role: #0369a1; /* sky-700 (Azul Rey) */
+  --color-dynamic-badge: #0369a1; /* sky-700 (Azul Rey) */
+  --color-dynamic-avatar: rgba(3, 105, 161, 0.8); /* sky-700/80 */
+
+  --scrollbar-thumb: rgba(15, 23, 42, 0.15);
+  --scrollbar-thumb-hover: rgba(15, 23, 42, 0.3);
+
+  /* -------------------------------------------------------------------------
+     TEXTO SECUNDARIO / GRIS EN MODO CLARO
+     Modifica estos valores hexadecimales (#1e293b y #334155) para hacer las
+     letras grises aún más oscuras (más tiradas al negro) o más claras.
+     ------------------------------------------------------------------------- */
+  --text-muted: #1e293b;   /* Texto secundario (antes #475569) */
+  --text-subtle: #334155;  /* Texto de menor importancia (antes #64748b) */
+
+  --accent: #0284c7;
+  --accent-light: #0369a1;
+  --accent-glow: rgba(2, 132, 199, 0.15);
+
+  --scrollbar-thumb: rgba(15, 23, 42, 0.22);
+  --scrollbar-thumb-hover: rgba(15, 23, 42, 0.4);
+}
+
+/* UTILIDADES DINÁMICAS (Se ajustan según .theme-light o .theme-dark) */
+.text-dynamic-role { color: var(--color-dynamic-role); }
+.text-dynamic-badge { color: var(--color-dynamic-badge); }
+.border-dynamic-avatar { border-color: var(--color-dynamic-avatar); }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Background image overlay */
+.bg-buildings {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: var(--bg-buildings-filter);
+  transition: filter 0.5s ease;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg-overlay-gradient);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: background 0.5s ease;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.executive-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.executive-card:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+}
+
+.heading-main {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: var(--text-heading-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hide horizontal scrollbar on mobile pills */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Theme light text fixes */
+.theme-light .text-white {
+  color: #0f172a !important;
+}
+
+.theme-light .text-slate-200,
+.theme-light .text-slate-300 {
+  color: #0f172a !important; /* Texto principal oscuro (antes #334155) */
+}
+
+.theme-light .text-slate-400 {
+  color: #1e293b !important; /* Texto secundario oscuro (antes #475569) */
+}
+
+.theme-light .text-slate-500 {
+  color: #334155 !important; /* Texto sutil oscuro (antes #64748b) */
+}
+
+.theme-light .border-white\/5,
+.theme-light .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+.theme-light .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+.theme-light .hover\:bg-white\/10:hover {
+  background-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+.theme-light .bg-slate-900\/40,
+.theme-light .bg-slate-950\/50,
+.theme-light .bg-slate-800\/50,
+.theme-light .bg-slate-900\/50 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.theme-light .bg-sky-600\/20,
+.theme-light .bg-sky-500\/10 {
+  background-color: rgba(2, 132, 199, 0.15) !important;
+}
+
+.theme-light .text-sky-400,
+.theme-light .text-sky-300 {
+  color: #0284c7 !important;
+}
+
+.theme-light .border-slate-700 {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+/* Light mode specific fix for yellow/amber legibility */
+.theme-light .text-yellow-400,
+.theme-light .text-amber-400,
+.theme-light .text-amber-300,
+.theme-light .text-yellow-300 {
+  color: #b45309 !important;
+  /* Rich amber brown for high contrast */
+}
+
+.theme-light .bg-amber-500\/10,
+.theme-light .bg-yellow-500\/10 {
+  background-color: rgba(217, 119, 6, 0.15) !important;
+  border-color: rgba(217, 119, 6, 0.25) !important;
+}
+
+/* Light mode overrides for LinkedIn (blue-300) and Correo (purple-300) button texts */
+.theme-light .text-blue-300 {
+  color: #1e40af !important;
+  /* Dark blue */
+}
+
+.theme-light .text-purple-300 {
+  color: #6d28d9 !important;
+  /* Dark purple */
+}
+
+/* Light mode overrides for sidebar button badges to make them lighter and same width */
+.theme-light .nav-button span.rounded-full {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  color: #475569 !important;
+}
+
+.theme-light .nav-button.active span.rounded-full {
+  background-color: rgba(2, 132, 199, 0.15) !important;
+  color: #0284c7 !important;
+}

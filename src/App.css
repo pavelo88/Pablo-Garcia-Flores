@@ -1,0 +1,21 @@
+/* 
+  Los estilos ahora son gestionados mediante TailwindCSS y las utilidades 
+  premium definidas en index.css (como .glass-panel).
+  Este archivo se mantiene para overrides específicos si son necesarios.
+*/
+
+.nav-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-button.active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+  color: #fff;
+}
+
+.nav-button:not(.active):hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
