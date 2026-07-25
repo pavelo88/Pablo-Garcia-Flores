@@ -29,16 +29,35 @@ export const handleDownloadCV = async () => {
 
   try {
     const photoDataUrl = await loadImage('/foto.png');
-    const photoSize = 130;
+    // =========================================================================
+    // AJUSTES DE FOTO (FOTO CIRCULAR PERFECTA Y MARCO DE BORDES)
+    // =========================================================================
+    const photoSize = 130;               // Ancho y alto de la foto (en puntos)
     const photoX = (sidebarWidth - photoSize) / 2;
     const photoY = 40;
 
-    // Draw Cyan Outer Ring Frame around Photo
-    doc.setDrawColor(56, 189, 248);
-    doc.setLineWidth(3);
-    doc.circle(photoX + photoSize / 2, photoY + photoSize / 2, photoSize / 2 + 3);
+    // Cálculos para el círculo
+    const centerX = photoX + photoSize / 2;
+    const centerY = photoY + photoSize / 2;
+    const radius = photoSize / 2;
 
+    const borderThickness = 3;           // Grosor del marco de color
+    const borderColor = [56, 189, 248];  // Color RGB del marco (Cyan: #38bdf8 -> 56, 189, 248)
+
+    // 1. Dibujar la imagen cuadrada original
     doc.addImage(photoDataUrl, 'PNG', photoX, photoY, photoSize, photoSize);
+
+    // 2. Crear una "máscara" circular del mismo color del fondo (azul oscuro) 
+    // para tapar las esquinas cuadradas de la foto sin usar doc.clip() que rompe el texto.
+    doc.setDrawColor(15, 23, 42); // Color del fondo del sidebar (#0f172a)
+    doc.setLineWidth(30);         // Grosor suficiente para tapar las esquinas
+    doc.circle(centerX, centerY, radius + 15, 'S');
+
+    // 3. Dibujar marco del borde cyan sobre la foto recortada
+    doc.setDrawColor(borderColor[0], borderColor[1], borderColor[2]);
+    doc.setLineWidth(borderThickness);
+    doc.circle(centerX, centerY, radius, 'S');
+
     doc.link(photoX, photoY, photoSize, photoSize, { url: WEB_LINK });
   } catch (err) {
     console.warn('No se pudo cargar la imagen de perfil para el PDF:', err);
@@ -86,12 +105,12 @@ export const handleDownloadCV = async () => {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(9.5);
   doc.setTextColor(255, 255, 255);
-  
+
   const skills = [
     '• Experto en Inteligencia Artificial',
     '• Automatización Legal NCI 400',
     '• Control Patrimonial Estatal',
-    '• Constatación Física al 100%',
+    '• Constatación Física',
     '• Conciliación Contable SAP/ERP',
     '• Sistemas Códigos de Barra/RFID',
     '• Informes de Auditoría CGE'
@@ -123,56 +142,87 @@ export const handleDownloadCV = async () => {
 
   // --- RIGHT MAIN COLUMN CONTENT ---
   const rightX = sidebarWidth + 35;
-  const contentWidth = pageWidth - rightX - 35;
-  let rightY = 55;
+  const contentWidth = pageWidth - rightX - 45; // Margen derecho amplio
+  const centerX = rightX + (contentWidth / 2); // Centro de la columna derecha
+  let rightY = 60; 
 
-  // Title / Name Header
+  // =========================================================================
+  // AJUSTES DE TEXTO Y MÁRGENES DEL NOMBRE PRINCIPAL (CENTRADOS)
+  // =========================================================================
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(24);
-  doc.setTextColor(15, 23, 42); // Dark slate
-  doc.text('PABLO FABRICIO GARCÍA FLORES', rightX, rightY);
+  doc.setFontSize(26); 
+  doc.setTextColor(15, 23, 42); 
+  // Texto centrado usando align: 'center' respecto al centerX
+  doc.text('PABLO FABRICIO', centerX, rightY, { align: 'center' });
+  
+  rightY += 26;
+  doc.setFont('helvetica', 'normal'); 
+  doc.setFontSize(26);
+  doc.setTextColor(51, 65, 85); 
+  doc.text('GARCÍA FLORES', centerX, rightY, { align: 'center' });
 
   rightY += 20;
-  doc.setFontSize(12);
-  doc.setTextColor(2, 132, 199); // Sky blue
-  doc.text('INGENIERO EN ADMINISTRACIÓN | ESPECIALISTA EN ACTIVOS FIJOS & IA', rightX, rightY);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
+  doc.setTextColor(2, 132, 199); 
+  const subtitleText = 'INGENIERO EN ADMINISTRACIÓN DE EMPRESAS | ESPECIALISTA EN ACTIVOS FIJOS & IA';
+  
+  // Para centrar un texto que podría romperse, calculamos sus líneas para el salto, pero dejamos que jsPDF lo centre
+  const splitSubtitle = doc.splitTextToSize(subtitleText, contentWidth);
+  doc.text(subtitleText, centerX, rightY, { align: 'center', maxWidth: contentWidth });
 
-  rightY += 15;
-  doc.setDrawColor(203, 213, 225);
+  rightY += splitSubtitle.length * 11 + 6;
+  doc.setDrawColor(226, 232, 240); 
   doc.setLineWidth(1);
-  doc.line(rightX, rightY, pageWidth - 35, rightY);
+  doc.line(rightX, rightY, pageWidth - 45, rightY);
 
   // Executive Summary
-  rightY += 28;
+  rightY += 30;
+  
+  // --- Diseño de Bloque de Color Moderno ---
+  doc.setFillColor(241, 245, 249); 
+  doc.rect(rightX - 5, rightY - 14, contentWidth + 10, 20, 'F');
+  doc.setFillColor(2, 132, 199); 
+  doc.rect(rightX - 5, rightY - 14, 4, 20, 'F');
+  
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(13);
+  doc.setFontSize(11);
   doc.setTextColor(15, 23, 42);
-  doc.text('PERFIL EJECUTIVO & INNOVACIÓN', rightX, rightY);
+  doc.text('PERFIL EJECUTIVO & INNOVACIÓN', rightX + 5, rightY + 1);
 
-  rightY += 16;
+  rightY += 18;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9.5);
   doc.setTextColor(51, 65, 85);
   const profileText = 'Ingeniero en Administración de Empresas con más de 15 años de trayectoria intachable en la dirección de bienes públicos, constatación física y conciliación contable patrimonial en el sector estatal ecuatoriano (Consejo de la Judicatura y Registro Civil). Experto en la aplicación práctica de Inteligencia Artificial para la interpretación y automatización de la normativa CGE (NCI 400), desarrollo de macros avanzadas e integración de sistemas de código de barras para garantizar transparencia y 0 hallazgos de auditoría.';
   const splitProfile = doc.splitTextToSize(profileText, contentWidth);
-  doc.text(splitProfile, rightX, rightY, { lineHeightFactor: 1.45 });
+  // Texto Justificado
+  doc.text(profileText, rightX, rightY, { maxWidth: contentWidth, align: 'justify', lineHeightFactor: 1.45 });
 
   rightY += splitProfile.length * 14 + 18;
 
   // Professional Experience Timeline
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(13);
-  doc.setTextColor(15, 23, 42);
-  doc.text('TRAYECTORIA INSTITUCIONAL (15+ AÑOS)', rightX, rightY);
+  // --- Diseño de Bloque de Color Moderno ---
+  doc.setFillColor(241, 245, 249); 
+  doc.rect(rightX - 5, rightY - 14, contentWidth + 10, 20, 'F');
+  doc.setFillColor(2, 132, 199); 
+  doc.rect(rightX - 5, rightY - 14, 4, 20, 'F');
 
-  rightY += 18;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(15, 23, 42);
+  doc.text('TRAYECTORIA INSTITUCIONAL (15+ AÑOS)', rightX + 5, rightY + 1);
+
+  rightY += 20;
   // Role 1
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(11);
   doc.setTextColor(15, 23, 42);
-  doc.text('Analista de Activos Fijos — Consejo de la Judicatura del Ecuador', rightX, rightY);
-  
-  rightY += 14;
+  const expTitle1 = 'Analista de Activos Fijos — Consejo de la Judicatura del Ecuador';
+  const splitExpTitle1 = doc.splitTextToSize(expTitle1, contentWidth);
+  doc.text(splitExpTitle1, rightX, rightY);
+
+  rightY += splitExpTitle1.length * 13;
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(9);
   doc.setTextColor(2, 132, 199);
@@ -184,7 +234,8 @@ export const handleDownloadCV = async () => {
   doc.setTextColor(51, 65, 85);
   const exp1 = 'Dirección técnica nacional de levantamientos físicos, conciliaciones contable-patrimoniales e inspección in situ en dependencias judiciales. Elaboración de informes técnicos de baja, remate y custodia con 0 observaciones CGE.';
   const splitExp1 = doc.splitTextToSize(exp1, contentWidth);
-  doc.text(splitExp1, rightX, rightY, { lineHeightFactor: 1.4 });
+  // Texto Justificado
+  doc.text(exp1, rightX, rightY, { maxWidth: contentWidth, align: 'justify', lineHeightFactor: 1.4 });
 
   rightY += splitExp1.length * 13 + 16;
 
@@ -192,9 +243,11 @@ export const handleDownloadCV = async () => {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(11);
   doc.setTextColor(15, 23, 42);
-  doc.text('Especialista de Gestión de Bienes — Registro Civil del Ecuador', rightX, rightY);
+  const expTitle2 = 'Encargado del proceso de producción, control de especies valoradas e inventario — Registro Civil del Ecuador';
+  const splitExpTitle2 = doc.splitTextToSize(expTitle2, contentWidth);
+  doc.text(splitExpTitle2, rightX, rightY);
 
-  rightY += 14;
+  rightY += splitExpTitle2.length * 13;
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(9);
   doc.setTextColor(2, 132, 199);
@@ -206,31 +259,41 @@ export const handleDownloadCV = async () => {
   doc.setTextColor(51, 65, 85);
   const exp2 = 'Administración operativa de inventarios masivos a nivel nacional, custodia legal de activos fijos, estandarización de actas de entrega-recepción y optimización de recursos mediante catastro digitalizado.';
   const splitExp2 = doc.splitTextToSize(exp2, contentWidth);
-  doc.text(splitExp2, rightX, rightY, { lineHeightFactor: 1.4 });
+  // Texto Justificado
+  doc.text(exp2, rightX, rightY, { maxWidth: contentWidth, align: 'justify', lineHeightFactor: 1.4 });
 
-  rightY += splitExp2.length * 13 + 22;
+  rightY += splitExp2.length * 13 + 24;
 
   // Institutional References Section
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(13);
-  doc.setTextColor(15, 23, 42);
-  doc.text('REFERENCIAS INSTITUCIONALES VERIFICADAS', rightX, rightY);
+  // --- Diseño de Bloque de Color Moderno ---
+  doc.setFillColor(241, 245, 249); 
+  doc.rect(rightX - 5, rightY - 14, contentWidth + 10, 20, 'F');
+  doc.setFillColor(2, 132, 199); 
+  doc.rect(rightX - 5, rightY - 14, 4, 20, 'F');
 
-  rightY += 18;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(15, 23, 42);
+  doc.text('REFERENCIAS INSTITUCIONALES VERIFICADAS', rightX + 5, rightY + 1);
+
+  rightY += 20;
 
   // Reference 1
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(10.5);
   doc.setTextColor(15, 23, 42);
   doc.text('• Ing. Audelith Cárdenas', rightX, rightY);
-  
+
   rightY += 13;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(71, 85, 105);
-  doc.text('Jefa Departamental de Activos Fijos — Consejo de la Judicatura del Ecuador', rightX + 10, rightY);
+  const refDesc1 = 'Jefa Departamental de Activos Fijos — Consejo de la Judicatura del Ecuador';
+  const splitRefDesc1 = doc.splitTextToSize(refDesc1, contentWidth - 10);
+  // Texto Justificado
+  doc.text(refDesc1, rightX + 10, rightY, { maxWidth: contentWidth - 10, align: 'justify' });
 
-  rightY += 18;
+  rightY += splitRefDesc1.length * 11 + 7;
 
   // Reference 2
   doc.setFont('helvetica', 'bold');
@@ -242,13 +305,16 @@ export const handleDownloadCV = async () => {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(71, 85, 105);
-  doc.text('Supervisora de Cedulación y Pasaportes — Dirección Provincial del Registro Civil', rightX + 10, rightY);
+  const refDesc2 = 'Supervisora de Cedulación y Pasaportes — Dirección Provincial del Registro Civil, Identificación y Cedulación';
+  const splitRefDesc2 = doc.splitTextToSize(refDesc2, contentWidth - 10);
+  // Texto Justificado
+  doc.text(refDesc2, rightX + 10, rightY, { maxWidth: contentWidth - 10, align: 'justify' });
 
   // Footer Tagline
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8.5);
-  doc.setTextColor(148, 163, 184);
-  doc.text('Hoja de Vida Oficial — Generada desde pavelo88.github.io', rightX, pageHeight - 30);
+  doc.setTextColor(148, 163, 184); // Slate 400
+  doc.text('Pablo García Flores — Perfil Profesional | pavelo88.github.io', rightX, pageHeight - 20);
 
   doc.save('CV_Pablo_Garcia_Flores.pdf');
 };
