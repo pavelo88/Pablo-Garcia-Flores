@@ -171,7 +171,9 @@ body {
   letter-spacing: -0.02em;
   background: var(--text-heading-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Hide horizontal scrollbar on mobile pills */
