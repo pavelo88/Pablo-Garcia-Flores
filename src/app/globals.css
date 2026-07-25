@@ -136,16 +136,18 @@ body {
   inset: 0;
   z-index: -1;
   background: var(--bg-overlay-gradient);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  --overlay-blur: blur(2px);
+  -webkit-backdrop-filter: var(--overlay-blur);
+  backdrop-filter: var(--overlay-blur);
   transition: background 0.5s ease;
 }
 
 /* Utilities */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  --glass-blur: blur(4px);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   border-radius: 24px;
@@ -155,8 +157,9 @@ body {
 .executive-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  --card-blur: blur(14px);
+  -webkit-backdrop-filter: var(--card-blur);
+  backdrop-filter: var(--card-blur);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
