@@ -38,14 +38,14 @@ export default function SystemsTab() {
               Levantamiento Inteligente & Código de Barras
             </h3>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Desarrollo de macros automatizadas en Excel y algoritmos de validación de integridad masiva que interactúan con terminales portátiles de lectura de barras y RFID.
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify">
+              Arquitectura, desarrollo y despliegue Full-Stack de la plataforma comercial energyengine.es. Implementación estructurada en frameworks modernos para garantizar alto rendimiento, escalabilidad de tráfico y optimización algorítmica para indexación avanzada (SEO/LLMO).
             </p>
 
             <div className="flex flex-wrap gap-1.5">
-              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Macros VBA</span>
-              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Barcode/RFID</span>
-              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Data Cleaning</span>
+              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Next.js</span>
+              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Node.js</span>
+              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">SEO/LLMO</span>
             </div>
           </div>
 

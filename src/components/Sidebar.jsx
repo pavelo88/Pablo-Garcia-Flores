@@ -26,8 +26,9 @@ export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
       <div className="p-5 lg:p-6 flex flex-col justify-between h-full overflow-y-auto custom-scrollbar">
         <div>
           {/* Executive Profile Avatar Header */}
+          {/* Executive Profile Avatar Header */}
           <div className="pt-1 pb-5 border-b border-white/10 mb-5 flex flex-col items-center text-center">
-            <div className="w-24 h-24 lg:w-26 lg:h-26 rounded-full overflow-hidden border-4 border-sky-400/50 shadow-[0_0_20px_rgba(56,189,248,0.3)] relative group mb-3">
+            <div className="w-24 h-24 lg:w-26 lg:h-26 rounded-full overflow-hidden border-4 border-dynamic-avatar shadow-[0_0_20px_rgba(56,189,248,0.3)] relative group mb-3">
               <img
                 src="/foto.png"
                 alt="Pablo Fabricio García Flores"
@@ -40,14 +41,14 @@ export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
               Pablo Fabricio<br />García Flores
             </h1>
 
-            <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-sky-400 mb-2.5">
+            <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-dynamic-role mb-2.5">
               Ing. Administración de Empresas
             </p>
 
             {/* Badges */}
             <div className="flex flex-col items-center gap-1 w-full">
-              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sky-500/10 border border-sky-400/20 text-sky-300 text-[11px] font-semibold">
-                <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sky-500/10 border border-sky-400/20 text-dynamic-badge text-[11px] font-semibold">
+                <ShieldCheck className="w-3.5 h-3.5 text-dynamic-role" />
                 <span>Control Patrimonial & CGE</span>
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300 text-[10px] font-semibold">
@@ -71,8 +72,8 @@ export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
                     key={item.id}
                     onClick={() => setActiveTab(item.id)}
                     className={`nav-button flex items-center justify-between px-3.5 py-3 rounded-2xl font-semibold text-xs lg:text-sm transition-all border ${isActive
-                        ? 'bg-sky-500/20 border-sky-400/50 text-white shadow-[0_0_15px_rgba(56,189,248,0.25)]'
-                        : 'bg-white/5 border-transparent text-slate-300 hover:bg-white/10 hover:border-white/10'
+                      ? 'bg-sky-500/20 border-sky-400/50 text-white shadow-[0_0_15px_rgba(56,189,248,0.25)]'
+                      : 'bg-white/5 border-transparent text-slate-300 hover:bg-white/10 hover:border-white/10'
                       }`}
                   >
                     <div className="flex items-center gap-2.5">

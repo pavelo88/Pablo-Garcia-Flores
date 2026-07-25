@@ -1,13 +1,76 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mi-portafolio</title>
-  <script src="https://cdn.tailwindcss.com"></script></head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pablo García Flores</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Metadatos de Datos Estructurados (Schema.org / LLMO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://pavelo88.github.io/#person",
+        "name": "Pablo Fabricio García Flores",
+        "jobTitle": [
+          "Analista de Activos Fijos",
+          "Desarrollador de Software Avanzado",
+          "Ingeniero en Administración de Empresas"
+        ],
+        "description": "Ingeniero especialista en Control Patrimonial Estatal y Arquitecto Full-Stack enfocado en orquestación de agentes autónomos.",
+        "knowsAbout": [
+          "Control Patrimonial Institucional",
+          "Auditoría de Bienes Estatales",
+          "Reglamento 067 CGE",
+          "Orquestación de Agentes Autónomos (Agentic AI)",
+          "Next.js",
+          "Node.js",
+          "Python",
+          "Playwright",
+          "Desarrollo Full-Stack"
+        ],
+        "alumniOf": [
+          {
+            "@type": "Organization",
+            "name": "Consejo de la Judicatura"
+          },
+          {
+            "@type": "Organization",
+            "name": "Dirección General del Registro Civil del Ecuador"
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "name": "SoftIA Ecosistema",
+        "description": "Bot enrutador en Telegram que transfiere órdenes al modelo Hermes en un entorno local seguro. Ejecución externa y aislada de web research.",
+        "programmingLanguage": ["Python", "Node.js"],
+        "author": {
+          "@id": "https://pavelo88.github.io/#person"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "Energy Engine",
+        "url": "https://energyengine.es",
+        "description": "Plataforma comercial con arquitectura Full-Stack desplegada y gestionada por Pablo García Flores.",
+        "author": {
+          "@id": "https://pavelo88.github.io/#person"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

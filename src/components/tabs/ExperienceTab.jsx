@@ -14,8 +14,8 @@ export default function ExperienceTab() {
           Experiencia Institucional
         </h2>
 
-        <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed">
-          Más de 15 años de liderazgo comprobado en la administración, fiscalización y regularización de bienes muebles e inmuebles del Estado ecuatoriano.
+        <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed text-justify">
+          Diseño y ejecución técnica de auditorías de infraestructura e inventario patrimonial. Desarrollé e implementé el Sistema Auxiliar de Constatación Física, automatizando el flujo de datos y garantizando conciliaciones exactas. Toda la ingeniería de procesos internos está rigurosamente estructurada para asegurar el 100% de cumplimiento normativo exigido por el Reglamento 067 de la Contraloría General del Estado (CGE), mitigando riesgos de responsabilidad administrativa.
         </p>
 
         {/* Executive Timeline */}
@@ -82,8 +82,8 @@ export default function ExperienceTab() {
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                Especialista en Gestión de Bienes Públicos
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
+                Encargado del proceso de producción, control de especies valoradas e inventario
               </h3>
 
               <p className="text-sm text-slate-300 leading-relaxed mb-4">

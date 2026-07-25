@@ -107,6 +107,8 @@ export const handleDownloadCV = async () => {
   doc.setTextColor(255, 255, 255);
 
   const skills = [
+    '• Liderazgo y Gestión de Equipos', // Soft skill añadida
+    '• Resolución Estratégica', // Soft skill añadida
     '• Experto en Inteligencia Artificial',
     '• Automatización Legal NCI 400',
     '• Control Patrimonial Estatal',
@@ -232,10 +234,10 @@ export const handleDownloadCV = async () => {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9.5);
   doc.setTextColor(51, 65, 85);
-  const exp1 = 'Dirección técnica nacional de levantamientos físicos, conciliaciones contable-patrimoniales e inspección in situ en dependencias judiciales. Elaboración de informes técnicos de baja, remate y custodia con 0 observaciones CGE.';
+  const exp1 = '• Dirección técnica nacional de levantamientos físicos y conciliaciones contable-patrimoniales.\n• Inspección in situ en dependencias judiciales a nivel nacional.\n• Logro destacado: Elaboración de informes técnicos de baja, remate y custodia con 0 observaciones CGE.';
   const splitExp1 = doc.splitTextToSize(exp1, contentWidth);
-  // Texto Justificado
-  doc.text(exp1, rightX, rightY, { maxWidth: contentWidth, align: 'justify', lineHeightFactor: 1.4 });
+  // Texto alineado a la izquierda (por defecto) para que las viñetas se vean bien
+  doc.text(exp1, rightX, rightY, { maxWidth: contentWidth, lineHeightFactor: 1.4 });
 
   rightY += splitExp1.length * 13 + 16;
 
@@ -257,10 +259,10 @@ export const handleDownloadCV = async () => {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9.5);
   doc.setTextColor(51, 65, 85);
-  const exp2 = 'Administración operativa de inventarios masivos a nivel nacional, custodia legal de activos fijos, estandarización de actas de entrega-recepción y optimización de recursos mediante catastro digitalizado.';
+  const exp2 = '• Administración operativa de inventarios masivos a nivel nacional y custodia legal de activos fijos.\n• Estandarización de actas de entrega-recepción.\n• Logro destacado: Optimización de recursos mediante catastro completamente digitalizado.';
   const splitExp2 = doc.splitTextToSize(exp2, contentWidth);
-  // Texto Justificado
-  doc.text(exp2, rightX, rightY, { maxWidth: contentWidth, align: 'justify', lineHeightFactor: 1.4 });
+  // Texto alineado a la izquierda (por defecto) para que las viñetas se vean bien
+  doc.text(exp2, rightX, rightY, { maxWidth: contentWidth, lineHeightFactor: 1.4 });
 
   rightY += splitExp2.length * 13 + 24;
 

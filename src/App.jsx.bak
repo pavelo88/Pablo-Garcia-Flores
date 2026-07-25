@@ -8,14 +8,14 @@ export default function App() {
   const [messages, setMessages] = useState([
     {
       role: 'model',
-      text: 'Bienvenido. Soy la IA de Pablo para consultas sobre control patrimonial, normativa CGE y gestión de bienes públicos.'
+      text: 'Bienvenido. Soy la IA de Pablo para consultas sobre control patrimonial, normativa CGE y gestiï¿½n de bienes pï¿½blicos.'
     }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const chatEndRef = useRef(null);
   const contactEmail = 'pablofgarciaf@gmail.com';
-  const mailToLink = `mailto:${contactEmail}?subject=Contacto%20desde%20mi%20portafolio&body=Hola%20Pablo%2C%20quiero%20contactarte%20para%20conocer%20más%20sobre%20tus%20servicios.`;
+  const mailToLink = `mailto:${contactEmail}?subject=Contacto%20desde%20mi%20portafolio&body=Hola%20Pablo%2C%20quiero%20contactarte%20para%20conocer%20mï¿½s%20sobre%20tus%20servicios.`;
   const apiKey = import.meta.env.VITE_GROQ_API_KEY || '';
 
   const handleDownloadCV = async () => {
@@ -53,7 +53,7 @@ export default function App() {
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(18);
     doc.setTextColor(255, 255, 255);
-    doc.text('Pablo Fabricio García Flores', 40, 190);
+    doc.text('Pablo Fabricio Garcï¿½a Flores', 40, 190);
 
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
@@ -61,20 +61,20 @@ export default function App() {
     doc.text('Quito, Ecuador', 40, 228);
     doc.text(`Email: ${contactEmail}`, 40, 246);
     doc.text('Celular: 0983992549', 40, 264);
-    doc.text('Cédula: 1721790721', 40, 282);
-    doc.text('Edad: 38 años', 40, 300);
+    doc.text('Cï¿½dula: 1721790721', 40, 282);
+    doc.text('Edad: 38 aï¿½os', 40, 300);
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(12);
     doc.setTextColor(18, 25, 42);
-    doc.text('Currículum Vitae', leftWidth + 40, 50);
+    doc.text('Currï¿½culum Vitae', leftWidth + 40, 50);
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(11);
     doc.text('Resumen', leftWidth + 40, 86);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
-    const summary = 'Ingeniero en Administración con experiencia en control patrimonial, constatación física y auditorías en el sector público. Experto en normativa CGE, control interno y soluciones de inventario.';
+    const summary = 'Ingeniero en Administraciï¿½n con experiencia en control patrimonial, constataciï¿½n fï¿½sica y auditorï¿½as en el sector pï¿½blico. Experto en normativa CGE, control interno y soluciones de inventario.';
     doc.text(summary, leftWidth + 40, 104, { maxWidth: pageWidth - leftWidth - 80 });
 
     doc.setFont('helvetica', 'bold');
@@ -82,17 +82,17 @@ export default function App() {
     doc.text('Experiencia', leftWidth + 40, 150);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
-    doc.text('Consejo de la Judicatura — Analista de Activos Fijos', leftWidth + 40, 168);
-    doc.text('8 años liderando constatación física, conciliación contable y control patrimonial.', leftWidth + 40, 183, { maxWidth: pageWidth - leftWidth - 80 });
-    doc.text('Registro Civil del Ecuador — Gestión de Bienes', leftWidth + 40, 208);
-    doc.text('7 años en administración patrimonial y optimización de procesos.', leftWidth + 40, 223, { maxWidth: pageWidth - leftWidth - 80 });
+    doc.text('Consejo de la Judicatura ï¿½ Analista de Activos Fijo', leftWidth + 40, 168);
+    doc.text('8 aï¿½os liderando constataciï¿½n fï¿½sica, conciliaciï¿½n contable y control patrimonial.', leftWidth + 40, 183, { maxWidth: pageWidth - leftWidth - 80 });
+    doc.text('Registro Civil del Ecuador ï¿½ Gestiï¿½n de Bienes', leftWidth + 40, 208);
+    doc.text('7 aï¿½os en administraciï¿½n patrimonial y optimizaciï¿½n de procesos.', leftWidth + 40, 223, { maxWidth: pageWidth - leftWidth - 80 });
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(11);
-    doc.text('Formación', leftWidth + 40, 258);
+    doc.text('Formaciï¿½n', leftWidth + 40, 258);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
-    doc.text('Ingeniería en Administración', leftWidth + 40, 276);
+    doc.text('Ingenierï¿½a en Administraciï¿½n', leftWidth + 40, 276);
     doc.text('Universidad XYZ, Ecuador', leftWidth + 40, 291);
 
     doc.setFont('helvetica', 'bold');
@@ -100,18 +100,18 @@ export default function App() {
     doc.text('Habilidades', leftWidth + 40, 330);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
-    doc.text('• Control patrimonial', leftWidth + 40, 348);
-    doc.text('• Auditoría y constatación', leftWidth + 40, 363);
-    doc.text('• Integración de sistemas', leftWidth + 40, 378);
-    doc.text('• IA para bienes públicos', leftWidth + 40, 393);
+    doc.text('ï¿½ Control patrimonial', leftWidth + 40, 348);
+    doc.text('ï¿½ Auditorï¿½a y constataciï¿½n', leftWidth + 40, 363);
+    doc.text('ï¿½ Integraciï¿½n de sistemas', leftWidth + 40, 378);
+    doc.text('ï¿½ IA para bienes pï¿½blicos', leftWidth + 40, 393);
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(11);
     doc.text('Idiomas', leftWidth + 40, 429);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(10);
-    doc.text('Español nativo', leftWidth + 40, 447);
-    doc.text('Inglés intermedio', leftWidth + 40, 462);
+    doc.text('Espaï¿½ol nativo', leftWidth + 40, 447);
+    doc.text('Inglï¿½s intermedio', leftWidth + 40, 462);
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(9);
@@ -141,7 +141,7 @@ export default function App() {
     setIsGenerating(true);
 
     try {
-      const systemPrompt = `Actúa como un Auditor Senior y Especialista Jurídico de la Contraloría General del Estado de Ecuador. Basa tus respuestas en la Constitución de la República, el Acuerdo 067-CG-2018, NCI 400 y la Normativa de Contabilidad Gubernamental aplicable. Mantén un tono técnico, formal y fundamentado en derecho.`;
+      const systemPrompt = `Actï¿½a como un Auditor Senior y Especialista Jurï¿½dico de la Contralorï¿½a General del Estado de Ecuador. Basa tus respuestas en la Constituciï¿½n de la Repï¿½blica, el Acuerdo 067-CG-2018, NCI 400 y la Normativa de Contabilidad Gubernamental aplicable. Mantï¿½n un tono tï¿½cnico, formal y fundamentado en derecho.`;
       const chatHistoryForApi = messages.map((m) => ({
         role: m.role === 'model' ? 'model' : 'user',
         parts: [{ text: m.text }]
@@ -162,14 +162,14 @@ export default function App() {
         body: JSON.stringify(payload)
       });
 
-      if (!response.ok) throw new Error('Error de conexión');
+      if (!response.ok) throw new Error('Error de conexiï¿½n');
       const result = await response.json();
       const candidate = result.candidates?.[0];
 
       if (candidate && candidate.content?.parts?.[0]?.text) {
         setMessages((prev) => [...prev, { role: 'model', text: candidate.content.parts[0].text }]);
       } else {
-        throw new Error('Respuesta inválida');
+        throw new Error('Respuesta invï¿½lida');
       }
     } catch (error) {
       setMessages((prev) => [...prev, { role: 'model', text: 'En este momento los servidores de consulta se encuentran en mantenimiento preventivo. Por favor, intente de nuevo en unos instantes.' }]);
@@ -205,9 +205,9 @@ export default function App() {
         <header className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs uppercase tracking-[0.35em] text-slate-400">Analista de Activos Fijos</p>
-            <h1 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">Pablo Fabricio García Flores</h1>
+            <h1 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">Pablo Fabricio Garcï¿½a Flores</h1>
             <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-              Control patrimonial y automatización de bienes públicos con foco en auditoría, normativa gubernamental y sistemas de gestión para el sector estatal.
+              Control patrimonial y automatizaciï¿½n de bienes pï¿½blicos con foco en auditorï¿½a, normativa gubernamental y sistemas de gestiï¿½n para el sector estatal.
             </p>
           </div>
 
@@ -245,7 +245,7 @@ export default function App() {
                       <div>
                         <span className="font-semibold text-white">LinkedIn:</span>{' '}
                         <a href="https://www.linkedin.com/in/pablo-fabricio-garc%C3%ADa-flores/" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 underline">
-                          pablo-fabricio-garcía-flores
+                          pablo-fabricio-garcï¿½a-flores
                         </a>
                       </div>
                     </div>
@@ -267,16 +267,16 @@ export default function App() {
                 <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-blue-400 mb-4">
                   <MapPin className="h-4 w-4" /> Quito, Ecuador | Standard Gubernamental
                 </div>
-                <h2 className="text-4xl font-black text-white mb-6">Dirección sólida para bienes públicos</h2>
-                <p className="text-slate-300 leading-8">Ingeniero en Administración con amplia experiencia en control patrimonial estatal. Lidero la constatación física, conciliación contable y diseño de sistemas que soportan auditorías y transparencia en inventarios de entidades públicas.</p>
+                <h2 className="text-4xl font-black text-white mb-6">Direcciï¿½n sï¿½lida para bienes pï¿½blicos</h2>
+                <p className="text-slate-300 leading-8">Ingeniero en Administraciï¿½n con amplia experiencia en control patrimonial estatal. Lidero la constataciï¿½n fï¿½sica, conciliaciï¿½n contable y diseï¿½o de sistemas que soportan auditorï¿½as y transparencia en inventarios de entidades pï¿½blicas.</p>
                 <div className="mt-10 grid gap-4 sm:grid-cols-3">
                   <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
                     <div className="text-4xl font-black text-white">15</div>
-                    <div className="mt-2 text-xs uppercase tracking-[0.35em] text-slate-400">Años en el sector público</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.35em] text-slate-400">Aï¿½os en el sector pï¿½blico</div>
                   </div>
                   <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
                     <div className="text-4xl font-black text-white">0</div>
-                    <div className="mt-2 text-xs uppercase tracking-[0.35em] text-slate-400">Hallazgos en auditorías</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.35em] text-slate-400">Hallazgos en auditorï¿½as</div>
                   </div>
                   <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
                     <div className="text-4xl font-black text-white">AI / SAP</div>
@@ -291,14 +291,14 @@ export default function App() {
                 <h2 className="text-3xl font-black text-white tracking-tighter mb-8">Trayectoria Institucional</h2>
                 <div className="space-y-6">
                   <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
-                    <div className="text-xs uppercase tracking-[0.35em] text-blue-400 mb-3">8 años</div>
+                    <div className="text-xs uppercase tracking-[0.35em] text-blue-400 mb-3">8 aï¿½os</div>
                     <h3 className="text-2xl font-black text-white mb-3">Consejo de la Judicatura</h3>
-                    <p className="text-slate-300 leading-relaxed">Dirección técnica de constatación física y conciliación de inventarios. Responsable de la gestión patrimonial y control interno bajo normativa CGE.</p>
+                    <p className="text-slate-300 leading-relaxed">Direcciï¿½n tï¿½cnica de constataciï¿½n fï¿½sica y conciliaciï¿½n de inventarios. Responsable de la gestiï¿½n patrimonial y control interno bajo normativa CGE.</p>
                   </div>
                   <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
-                    <div className="text-xs uppercase tracking-[0.35em] text-slate-400 mb-3">7 años</div>
+                    <div className="text-xs uppercase tracking-[0.35em] text-slate-400 mb-3">7 aï¿½os</div>
                     <h3 className="text-2xl font-black text-white mb-3">Registro Civil del Ecuador</h3>
-                    <p className="text-slate-300 leading-relaxed">Administración patrimonial institucional y optimización de recursos mediante procesos normativos, inventarios y controles de bienes públicos.</p>
+                    <p className="text-slate-300 leading-relaxed">Administraciï¿½n patrimonial institucional y optimizaciï¿½n de recursos mediante procesos normativos, inventarios y controles de bienes pï¿½blicos.</p>
                   </div>
                 </div>
               </div>
@@ -309,9 +309,9 @@ export default function App() {
                 <h2 className="text-3xl font-black text-white tracking-tighter mb-8">Arquitectura & Sistemas</h2>
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
-                    <div className="text-xs uppercase tracking-[0.35em] text-blue-400 mb-3">Automatización</div>
+                    <div className="text-xs uppercase tracking-[0.35em] text-blue-400 mb-3">Automatizaciï¿½n</div>
                     <h3 className="text-2xl font-black text-white mb-3">Levantamiento inteligente</h3>
-                    <p className="text-slate-300 leading-relaxed">Implemento macros y validaciones que soportan códigos de barra, bases de datos y reportes para inventarios públicos.</p>
+                    <p className="text-slate-300 leading-relaxed">Implemento macros y validaciones que soportan cï¿½digos de barra, bases de datos y reportes para inventarios pï¿½blicos.</p>
                   </div>
                   <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
                     <div className="text-xs uppercase tracking-[0.35em] text-blue-400 mb-3">IA normativa</div>
@@ -328,7 +328,7 @@ export default function App() {
                   <div className="flex items-center gap-3 text-sm uppercase tracking-[0.35em] text-blue-400 mb-4">
                     <Bot className="w-5 h-5" /> Consultor IA Normativo
                   </div>
-                  <p className="text-slate-300 leading-7 max-w-2xl">Asistente conversacional para normas de control interno, bienes públicos y procedimientos de auditoría patrimonial.</p>
+                  <p className="text-slate-300 leading-7 max-w-2xl">Asistente conversacional para normas de control interno, bienes pï¿½blicos y procedimientos de auditorï¿½a patrimonial.</p>
                 </div>
                 <div className="max-h-[60vh] overflow-y-auto p-6 space-y-5">
                   {messages.map((m, idx) => (
@@ -358,7 +358,7 @@ export default function App() {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Ej: ¿Cuándo es obligatoria la denuncia a fiscalía por pérdida de un bien?"
+                    placeholder="Ej: ï¿½Cuï¿½ndo es obligatoria la denuncia a fiscalï¿½a por pï¿½rdida de un bien?"
                     className="flex-1 rounded-3xl border border-slate-800 bg-[#06080e] px-5 py-4 text-sm text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none"
                   />
                   <button
