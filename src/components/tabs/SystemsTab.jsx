@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, QrCode, Database, Bot, Sparkles, Binary, FileCheck2, Terminal } from 'lucide-react';
+import { Cpu, QrCode, Database, Bot, Sparkles, Binary, FileCheck2, Terminal, Map, Users, BarChart3, Settings } from 'lucide-react';
 import ContactButtons from '../ContactButtons';
 
 export default function SystemsTab() {
@@ -7,15 +7,15 @@ export default function SystemsTab() {
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 lg:flex lg:flex-col lg:justify-between lg:h-full">
       <div>
         <div className="flex items-center gap-2 text-xs uppercase font-bold tracking-[0.2em] text-purple-400 mb-3">
-          <Cpu className="w-4 h-4" /> Innovación & Transformación Digital
+          <Cpu className="w-4 h-4" /> Innovación & Sistemas Informáticos
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl heading-main font-black mb-3">
-          Arquitectura Tecnológica & Sistemas
+          Sistemas & Arquitectura de Procesos
         </h2>
 
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed">
-          Modernización de la administración pública mediante el diseño de herramientas automatizadas, integración con ERP/SAP y la aplicación de Inteligencia Artificial para el cumplimiento normativo CGE.
+          Modernización de la administración pública mediante el diseño de herramientas automatizadas, bases de datos y sistemas informáticos que garantizan el control, planificación y eficiencia logística a nivel nacional.
         </p>
 
         {/* Systems Cards Grid */}
@@ -30,7 +30,7 @@ export default function SystemsTab() {
                 <QrCode className="w-6 h-6" />
               </div>
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-sky-400 bg-sky-500/10 border border-sky-400/20 px-2.5 py-1 rounded-full">
-                Inventario Masivo
+                Inventario & Logística
               </span>
             </div>
 
@@ -39,13 +39,12 @@ export default function SystemsTab() {
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify">
-              Arquitectura, desarrollo y despliegue Full-Stack de la plataforma comercial energyengine.es. Implementación estructurada en frameworks modernos para garantizar alto rendimiento, escalabilidad de tráfico y optimización algorítmica para indexación avanzada (SEO/LLMO).
+              Desarrollo e implementación de sistemas de código de barras para el control territorial de bienes. Optimización de la logística de distribución y planificación operativa para auditorías físicas.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
-              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Next.js</span>
-              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Node.js</span>
-              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">SEO/LLMO</span>
+              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Logística y Transporte</span>
+              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Sistemas de Control</span>
             </div>
           </div>
 
@@ -63,17 +62,16 @@ export default function SystemsTab() {
             </div>
 
             <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
-              Automatización Legal Normativa CGE
+              Automatización Normativa & Análisis de Procesos
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Configuración de agentes inteligentes instruidos con la NCI 400 y jurisprudencia administrativa para la absolución inmediata de consultas sobre bajas, remates y transferencias.
+              Configuración de agentes inteligentes instruidos con normativa (NCI 400) para asistir en procedimientos y toma de decisiones. Capacitación del personal en el uso de herramientas IA.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
-              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">Agentes IA</span>
-              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">NCI 400 CGE</span>
-              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">Asistencia Legal</span>
+              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">Capacitación</span>
+              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">Ingeniería de Procesos</span>
             </div>
           </div>
 
@@ -84,21 +82,21 @@ export default function SystemsTab() {
                 <Database className="w-6 h-6" />
               </div>
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-full">
-                Sistemas ERP
+                Sistemas ERP & Data
               </span>
             </div>
 
             <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
-              Conciliación Contable SAP & ERP Estatal
+              Bases de Datos, Registros & Conciliación SAP
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Estructuración de datos masivos para migración y emparejamiento con módulos de activos fijos en plataformas ERP institucionales (depreciaciones, revalorización y cuentas de orden).
+              Estructuración masiva de bases de datos estadísticos para integración con sistemas ERP institucionales. Garantizando la validación de registros demográficos y patrimoniales con alta precisión.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
-              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-lg">SAP Asset Mgmt</span>
-              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-lg">Depreciaciones</span>
+              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-lg">Bases de Datos Demográficos</span>
+              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-lg">Registros Institucionales</span>
             </div>
           </div>
 
@@ -109,21 +107,21 @@ export default function SystemsTab() {
                 <FileCheck2 className="w-6 h-6" />
               </div>
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-400/20 px-2.5 py-1 rounded-full">
-                Auditoría Ready
+                Planificación Documental
               </span>
             </div>
 
             <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">
-              Expedientes & Trazabilidad de Custodias
+              Expedientes & Información Territorial
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Generación automatizada de expedientes de custodias individuales, actas institucionales y matrices de trazabilidad preparadas para exámenes especiales de auditoría.
+              Generación automatizada de expedientes, actas y matrices de trazabilidad. Uso de información cartográfica para validar las inspecciones y despliegues operativos a nivel nacional.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
-              <span className="text-[10px] font-semibold text-amber-300 bg-amber-500/10 border border-amber-400/20 px-2.5 py-1 rounded-lg">Trazabilidad</span>
-              <span className="text-[10px] font-semibold text-amber-300 bg-amber-500/10 border border-amber-400/20 px-2.5 py-1 rounded-lg">Actas Digitales</span>
+              <span className="text-[10px] font-semibold text-amber-300 bg-amber-500/10 border border-amber-400/20 px-2.5 py-1 rounded-lg">Información Cartográfica</span>
+              <span className="text-[10px] font-semibold text-amber-300 bg-amber-500/10 border border-amber-400/20 px-2.5 py-1 rounded-lg">Planificación y Administración</span>
             </div>
           </div>
 

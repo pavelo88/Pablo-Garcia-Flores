@@ -7,15 +7,15 @@ export default function ExperienceTab() {
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col justify-between h-full">
       <div>
         <div className="flex items-center gap-2 text-xs uppercase font-bold tracking-[0.2em] text-sky-400 mb-3">
-          <Award className="w-4 h-4" /> Trayectoria Liderando Bienes Públicos
+          <Award className="w-4 h-4" /> Trayectoria Institucional
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl heading-main font-black mb-3">
-          Experiencia Institucional
+          Experiencia Profesional
         </h2>
 
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed text-justify">
-          Diseño y ejecución técnica de auditorías de infraestructura e inventario patrimonial. Desarrollé e implementé el Sistema Auxiliar de Constatación Física, automatizando el flujo de datos y garantizando conciliaciones exactas. Toda la ingeniería de procesos internos está rigurosamente estructurada para asegurar el 100% de cumplimiento normativo exigido por el Reglamento 067 de la Contraloría General del Estado (CGE), mitigando riesgos de responsabilidad administrativa.
+          Diseño y ejecución técnica de auditorías, procesos administrativos y despliegues logísticos de control a nivel nacional. He liderado la planificación, capacitación de personal y la ingeniería de procesos internos implementando bases de datos y sistemas informáticos para garantizar conciliaciones exactas y el cumplimiento normativo.
         </p>
 
         {/* Executive Timeline */}
@@ -33,7 +33,7 @@ export default function ExperienceTab() {
                   <Calendar className="w-3.5 h-3.5" /> 8 Años • Consejo de la Judicatura del Ecuador
                 </div>
                 <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3" /> CGE NCI 400
+                  <ShieldCheck className="w-3 h-3" /> Procesos & Control
                 </span>
               </div>
 
@@ -42,25 +42,25 @@ export default function ExperienceTab() {
               </h3>
 
               <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                Dirección técnica nacional de constataciones físicas, inventarios y conciliaciones contable-patrimoniales en todas las dependencias judiciales.
+                Dirección técnica nacional de constataciones físicas, inventarios y procesos de conciliación. Planificación y logística para el despliegue de auditorías de control en todas las dependencias judiciales.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10 text-xs text-slate-300">
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                  <span>Constatación física al 100% sin discrepancias contables.</span>
+                  <span>Planificación y logística de constataciones a nivel nacional.</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                  <span>Informes técnicos sustentados sin observaciones de CGE.</span>
+                  <span>Capacitación de personal en normativas y procesos operativos.</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                  <span>Baja y enajenación de bienes bajo normativa legal vigente.</span>
+                  <span>Implementación de sistemas informáticos para control de bienes.</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                  <span>Implementación de códigos de barra para control inmediato.</span>
+                  <span>Informes técnicos y de procesos con cero observaciones de CGE.</span>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function ExperienceTab() {
                   <Calendar className="w-3.5 h-3.5 text-slate-400" /> 7 Años • Dirección General del Registro Civil
                 </div>
                 <span className="text-[11px] font-semibold text-sky-300 bg-sky-500/10 border border-sky-400/20 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                  <FileSpreadsheet className="w-3 h-3" /> Cobertura Nacional
+                  <FileSpreadsheet className="w-3 h-3" /> Registros & Bases de Datos
                 </span>
               </div>
 
@@ -87,17 +87,17 @@ export default function ExperienceTab() {
               </h3>
 
               <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                Administración patrimonial operativa a nivel nacional. Planificación de inventarios periódicos, custodia institucional, recepción y asignación formal de activos fijos.
+                Administración operativa de registros institucionales y bienes a nivel nacional. Manejo exhaustivo de bases de datos, validación de información y planificación de recursos (especies valoradas y activos).
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10 text-xs text-slate-300">
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Reorganización y digitalización del catastro patrimonial.</span>
+                  <span>Análisis de bases de datos para el control de inventarios.</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Estandarización de actas de entrega-recepción de custodias.</span>
+                  <span>Logística y distribución estandarizada a nivel nacional.</span>
                 </div>
               </div>
             </div>
