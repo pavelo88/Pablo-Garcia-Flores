@@ -15,7 +15,7 @@ export default function ExperienceTab() {
         </h2>
 
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed text-justify">
-          Diseño y ejecución técnica de auditorías de infraestructura e inventario patrimonial. Desarrollé e implementé el Sistema Auxiliar de Constatación Física, automatizando el flujo de datos y garantizando conciliaciones exactas. Toda la ingeniería de procesos internos está rigurosamente estructurada para asegurar el 100% de cumplimiento normativo exigido por el Reglamento 067 de la Contraloría General del Estado (CGE), mitigando riesgos de responsabilidad administrativa.
+          Diseño y ejecución técnica de revisiones de infraestructura e inventario patrimonial. Desarrollé e implementé un Sistema Auxiliar de Constatación Física para automatizar el flujo de datos y mejorar la conciliación contable-patrimonial. La ingeniería de procesos internos se estructura con base en el Reglamento 067 de la Contraloría General del Estado (CGE), fortaleciendo el control y reduciendo riesgos de responsabilidad administrativa.
         </p>
 
         {/* Executive Timeline */}
@@ -38,7 +38,7 @@ export default function ExperienceTab() {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                Analista de Activos Fijos y Control Patrimonial
+                Analista de Contratación Pública | Funciones especializadas en Activos Fijos
               </h3>
 
               <p className="text-sm text-slate-300 leading-relaxed mb-4">
@@ -48,11 +48,11 @@ export default function ExperienceTab() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10 text-xs text-slate-300">
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                  <span>Constatación física al 100% sin discrepancias contables.</span>
+                  <span>Constataciones físicas y conciliaciones contable-patrimoniales.</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                  <span>Informes técnicos sustentados sin observaciones de CGE.</span>
+                  <span>Informes técnicos sustentados para revisión de la CGE.</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />

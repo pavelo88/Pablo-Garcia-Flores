@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserCheck, Building2, ShieldCheck, Phone, Mail, Award, CheckCircle2 } from 'lucide-react';
+import { UserCheck, Building2, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import ContactButtons from '../ContactButtons';
 
 export default function ReferencesTab() {
@@ -38,7 +38,7 @@ export default function ReferencesTab() {
         </h2>
 
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed">
-          Autoridades y directivos del sector público que certifican el desempeño técnico, la honestidad y la rigurosidad en la gestión de bienes patrimoniales.
+          Autoridades y directivos del sector público que pueden respaldar el desempeño técnico, la honestidad y la rigurosidad en la gestión de bienes patrimoniales.
         </p>
 
         {/* References Grid */}

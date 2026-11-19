@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, QrCode, Database, Bot, Sparkles, Binary, FileCheck2, Terminal } from 'lucide-react';
+import { Cpu, QrCode, Database, Bot, Sparkles, FileCheck2 } from 'lucide-react';
 import ContactButtons from '../ContactButtons';
 
 export default function SystemsTab() {
@@ -39,7 +39,7 @@ export default function SystemsTab() {
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify">
-              Arquitectura, desarrollo y despliegue Full-Stack de la plataforma comercial energyengine.es. Implementación estructurada en frameworks modernos para garantizar alto rendimiento, escalabilidad de tráfico y optimización algorítmica para indexación avanzada (SEO/LLMO).
+              Arquitectura, desarrollo y despliegue Full-Stack de la plataforma comercial energyengine.es. Implementación estructurada con frameworks modernos para favorecer el rendimiento, la escalabilidad y la optimización algorítmica para indexación avanzada (SEO/LLMO).
             </p>
 
             <div className="flex flex-wrap gap-1.5">

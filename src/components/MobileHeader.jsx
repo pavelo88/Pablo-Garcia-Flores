@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon, User, Briefcase, Database, UserCheck, Sparkles } from 'lucide-react';
+import { Sun, Moon, User, Briefcase, Database, UserCheck } from 'lucide-react';
 
 const mobileNavTabs = [
   { id: 'profile', icon: User, label: 'Perfil' },

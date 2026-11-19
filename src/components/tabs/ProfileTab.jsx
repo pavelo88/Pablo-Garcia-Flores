@@ -58,10 +58,10 @@ export default function ProfileTab() {
         {/* Bio */}
         <div className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mb-8 font-normal text-justify space-y-4">
           <p>
-            Ingeniero en Administración de Empresas con más de 15 años de trayectoria intachable en el sector público. Especialista en <strong className="font-bold text-white">Control Patrimonial Estatal, constatación física al 100% e Inteligencia Artificial</strong> aplicada a la gestión de bienes.
+            Ingeniero en Administración de Empresas con más de 15 años de experiencia en el sector público. He ocupado el cargo de <strong className="font-bold text-white">Analista de Contratación Pública</strong>, ejecutando actividades especializadas en control patrimonial estatal, activos fijos, inventarios y gestión de bienes.
           </p>
           <p>
-            Combino un <strong className="font-bold text-white">sólido liderazgo de equipos y visión estratégica</strong> con la implementación de agentes de IA y sistemas automatizados de código de barras, garantizando la máxima transparencia y conciliaciones contables con <strong className="text-emerald-400 font-bold">cero observaciones de la CGE</strong>.
+            Combino un <strong className="font-bold text-white">sólido liderazgo de equipos y visión estratégica</strong> con la implementación de agentes de IA y sistemas automatizados de código de barras, fortaleciendo la trazabilidad, la transparencia y la conciliación contable-patrimonial.
           </p>
         </div>
 
@@ -80,9 +80,9 @@ export default function ProfileTab() {
             <div className="absolute top-4 right-4 text-emerald-400/20 group-hover:text-emerald-400/40 transition-colors">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <div className="text-3xl lg:text-4xl font-black text-emerald-400 mb-1 font-heading tracking-tight">0</div>
-            <div className="text-[11px] font-bold tracking-wider uppercase text-emerald-400 mb-1">Observaciones CGE</div>
-            <div className="text-xs text-slate-400">Auditoría e informes de control 100% limpios</div>
+            <div className="text-3xl lg:text-4xl font-black text-emerald-400 mb-1 font-heading tracking-tight">CGE</div>
+            <div className="text-[11px] font-bold tracking-wider uppercase text-emerald-400 mb-1">Control documentado</div>
+            <div className="text-xs text-slate-400">Informes técnicos sustentados para auditoría</div>
           </div>
 
           <div className="executive-card p-5 lg:p-6 rounded-3xl relative overflow-hidden group">
@@ -91,7 +91,7 @@ export default function ProfileTab() {
             </div>
             <div className="text-3xl lg:text-4xl font-black text-purple-300 mb-1 font-heading tracking-tight">Experto IA</div>
             <div className="text-[11px] font-bold tracking-wider uppercase text-purple-400 mb-1">Sistemas & NCI 400</div>
-            <div className="text-xs text-slate-400">Dominio de agentes de IA en procesos de automatiozación</div>
+            <div className="text-xs text-slate-400">Aplicación de agentes de IA en procesos de automatización</div>
           </div>
         </div>
 
