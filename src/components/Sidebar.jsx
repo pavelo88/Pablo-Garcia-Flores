@@ -1,8 +1,15 @@
 import React from 'react';
-import { Sun, Moon, ShieldCheck, Sparkles } from 'lucide-react';
+import { Sun, Moon, ShieldCheck, Sparkles, User, Briefcase, Cpu, UserCheck } from 'lucide-react';
 import { handleDownloadCV } from '../utils/pdfGenerator';
 
-export default function Sidebar({ theme, setTheme }) {
+const navItems = [
+  { id: 'profile', icon: User, label: 'Inicio', badge: 'Principal' },
+  { id: 'experience', icon: Briefcase, label: 'Trayectoria', badge: '15 años' },
+  { id: 'systems', icon: Cpu, label: 'Habilidades', badge: 'Perfil' },
+  { id: 'references', icon: UserCheck, label: 'Referencias', badge: 'Avales' },
+];
+
+export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
   return (
     <aside className="glass-panel hidden lg:flex flex-col h-fit max-h-full overflow-hidden relative rounded-3xl border border-white/10">
       {/* Desktop Theme Toggle */}
@@ -47,10 +54,20 @@ export default function Sidebar({ theme, setTheme }) {
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300 text-[10px] font-semibold">
                 <Sparkles className="w-3 h-3 text-purple-400" />
-                <span>Experto en IA & Automatización</span>
+                <span>Datos & Automatización</span>
               </div>
             </div>
           </div>
+
+          <nav className="flex flex-col gap-2" aria-label="Navegación principal de escritorio">
+            {navItems.map(({ id, icon: Icon, label, badge }) => {
+              const isActive = activeTab === id;
+              return <button key={id} type="button" onClick={() => setActiveTab(id)} className={`nav-button flex items-center justify-between px-3.5 py-3 rounded-2xl font-semibold text-xs lg:text-sm transition-all border ${isActive ? 'bg-sky-500/20 border-sky-400/50 text-white shadow-[0_0_15px_rgba(56,189,248,0.25)]' : 'bg-white/5 border-transparent text-slate-300 hover:bg-white/10 hover:border-white/10'}`}>
+                <span className="flex items-center gap-2.5"><Icon className={`w-4 h-4 ${isActive ? 'text-sky-300' : 'text-slate-400'}`} />{label}</span>
+                <span className={`text-[9px] font-extrabold py-0.5 rounded-full w-16 text-center shrink-0 ${isActive ? 'bg-sky-400/30 text-sky-200' : 'bg-slate-800/60 text-slate-400'}`}>{badge}</span>
+              </button>;
+            })}
+          </nav>
 
         </div>
 

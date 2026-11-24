@@ -34,11 +34,11 @@ export default function ReferencesTab() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl heading-main font-black mb-3">
-          Referencias Institucionales
+          Referencias profesionales
         </h2>
 
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed">
-          Autoridades y directivos del sector público que pueden respaldar el desempeño técnico, la honestidad y la rigurosidad en la gestión de bienes patrimoniales.
+          Personas que pueden respaldar mi confiabilidad, coordinación, disciplina operativa y capacidad para ordenar procesos.
         </p>
 
         {/* References Grid */}

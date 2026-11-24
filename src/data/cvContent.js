@@ -1,14 +1,14 @@
 export const cvContent = {
   candidate: { name: 'Pablo Fabricio García Flores', degree: 'Ingeniero en Administración de Empresas', location: 'Quito, Ecuador' },
   target: {
-    headline: 'Control, trazabilidad y mejora continua para operaciones confiables.',
-    summary: 'Profesional con más de 15 años de experiencia en administración pública, control patrimonial, inventarios, custodias y conciliación contable. Mi experiencia combina disciplina documental, coordinación de equipos y automatización de procesos para fortalecer la calidad de los datos, la trazabilidad y la toma de decisiones.',
-    fit: 'Mi perfil puede aportar en procesos de logística, calidad, inventarios, activos, control interno y mejora continua, especialmente en una organización que gestiona productos de salud, bienestar y consumo con altos estándares de servicio.',
+    headline: 'Operaciones más ordenadas, datos confiables y activos bajo control.',
+    summary: 'Profesional con más de 15 años de experiencia en gestión de activos, inventarios, bodegas, control documental y conciliación de información. Combino disciplina operativa, coordinación de equipos y automatización para mejorar la trazabilidad, reducir inconsistencias y apoyar decisiones oportunas.',
+    fit: 'Aporto en logística, supply chain, calidad, operaciones, activos, control interno y mejora continua, con foco en procesos claros, información confiable, seguimiento medible y resultados sostenibles.',
     keywords: ['Logística', 'Inventarios', 'Calidad', 'Procesos', 'Trazabilidad', 'Mejora continua', 'Integridad', 'Trabajo colaborativo'],
   },
   experience: [
-    { period: '8 años', company: 'Consejo de la Judicatura del Ecuador', role: 'Analista de Contratación Pública | funciones especializadas en activos fijos', description: 'Coordinación técnica de constataciones físicas, inventarios y conciliaciones contable-patrimoniales en dependencias judiciales.', achievements: ['Constataciones físicas y conciliaciones contable-patrimoniales.', 'Informes técnicos sustentados para revisión y auditoría.', 'Procesos de baja y enajenación bajo normativa vigente.', 'Implementación de códigos de barras para control y trazabilidad.'] },
-    { period: '7 años', company: 'Dirección General del Registro Civil', role: 'Encargado de producción, control de especies valoradas e inventario', description: 'Administración patrimonial operativa a nivel nacional, con planificación de inventarios, custodia y asignación formal de activos.', achievements: ['Reorganización y digitalización del catastro patrimonial.', 'Estandarización de actas de entrega-recepción.', 'Coordinación de inventarios periódicos y validación documental.'] },
+    { period: '8 años', company: 'Consejo de la Judicatura del Ecuador', role: 'Analista de compras, activos y control operativo', description: 'Coordinación de inventarios, conciliaciones, levantamientos físicos y documentación de activos en una operación de gran escala.', achievements: ['Control de datos y conciliación físico-contable.', 'Informes técnicos para decisiones de operación y auditoría.', 'Procesos de disposición, regularización y seguimiento de activos.', 'Implementación de códigos de barras para trazabilidad.'] },
+    { period: '7 años', company: 'Dirección General del Registro Civil', role: 'Coordinador de producción, inventario y control de operaciones', description: 'Planificación de inventarios, control de materiales, custodia y asignación de activos, con cobertura de múltiples sedes y equipos.', achievements: ['Digitalización y depuración de catálogos de activos.', 'Estandarización de actas y flujos de entrega-recepción.', 'Coordinación de inventarios periódicos y validación documental.'] },
   ],
   capabilities: [
     { title: 'Inventarios y trazabilidad', description: 'Levantamientos físicos, codificación, custodias, actas y conciliación de información.' },

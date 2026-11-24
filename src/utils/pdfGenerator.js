@@ -65,7 +65,7 @@ const drawSidebar = (doc, width, height, photoDataUrl) => {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(1);
   doc.setTextColor(202, 216, 233);
-  doc.text('Experiencia en gestión de bienes públicos, inventarios y control patrimonial; candidato comprometido con la transparencia y el servicio institucional.', centerX, centerY, { align: 'center', maxWidth: 90 });
+  doc.text('Experiencia en operaciones, inventarios, activos y mejora continua; profesional orientado a resultados y trazabilidad.', centerX, centerY, { align: 'center', maxWidth: 90 });
   doc.addImage(photoDataUrl, 'PNG', photoX, photoY, photoSize, photoSize);
   doc.setDrawColor(202, 216, 233);
   doc.setLineWidth(24);
@@ -93,7 +93,7 @@ const drawSidebar = (doc, width, height, photoDataUrl) => {
   doc.text('ESPECIALIDADES', 20, y);
   doc.line(20, y + 5, sidebarWidth - 20, y + 5);
   y += 21;
-  ['Administración de bienes y activos fijos', 'Inventarios y bodegas', 'Constatación física y custodias', 'Control interno y NCI 400', 'Conciliación contable-patrimonial', 'Informes técnicos y auditoría', 'Códigos de barras y RFID', 'Automatización e inteligencia artificial', 'Liderazgo y coordinación', 'Paquetes informáticos'].forEach((item) => {
+  ['Activos e inventarios', 'Bodegas y trazabilidad', 'Control de ubicaciones', 'Procesos y calidad', 'Conciliación de información', 'Indicadores e informes', 'Códigos de barras y RFID', 'Automatización e inteligencia artificial', 'Liderazgo y coordinación', 'Herramientas digitales'].forEach((item) => {
     y = textBlock(doc, `• ${item}`, 20, y, sidebarWidth - 38, { size: 7.8, color: COLORS.white, lineHeight: 13 });
   });
 
@@ -137,7 +137,7 @@ export const handleDownloadCV = async () => {
   doc.text('GARCÍA FLORES', x, y);
   y += 19;
   y = textBlock(doc, 'INGENIERO EN ADMINISTRACIÓN DE EMPRESAS', x, y, contentWidth, { size: 8.8, color: COLORS.blue, style: 'bold', lineHeight: 11 });
-  textBlock(doc, 'Gestión de activos, inventarios, procesos y trazabilidad', x, y + 1, contentWidth, { size: 7.8, color: COLORS.slate, lineHeight: 10 });
+  textBlock(doc, cvContent.target.headline, x, y + 1, contentWidth, { size: 7.8, color: COLORS.slate, lineHeight: 10 });
   y = 195;
 
   y = sectionTitle(doc, 'PERFIL PROFESIONAL', x, y, contentWidth);
@@ -151,8 +151,8 @@ export const handleDownloadCV = async () => {
   });
 
   y = sectionTitle(doc, 'DECLARACIÓN DE INTERÉS', x, y, contentWidth);
-  y = textBlock(doc, 'Estoy interesado en aportar en procesos de logística, calidad, inventarios, activos, control interno y mejora continua. Quedo disponible para una entrevista y para presentar los respaldos correspondientes.', x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 15;
-  y = sectionTitle(doc, 'REFERENCIAS INSTITUCIONALES', x, y, contentWidth);
+  y = textBlock(doc, cvContent.target.fit, x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 15;
+  y = sectionTitle(doc, 'REFERENCIAS PROFESIONALES', x, y, contentWidth);
   cvContent.references.forEach((reference, index) => { y = textBlock(doc, reference, x, y, contentWidth, { size: 8.5, lineHeight: 12 }) + (index === cvContent.references.length - 1 ? 0 : 7); });
   doc.setDrawColor(203, 213, 225);
   doc.line(x, pageHeight - 48, pageWidth - 28, pageHeight - 48);

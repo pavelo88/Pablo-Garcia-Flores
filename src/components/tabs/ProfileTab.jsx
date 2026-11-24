@@ -37,7 +37,7 @@ export default function ProfileTab() {
             </div>
             <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-400/30 text-purple-300 text-[11px] font-bold">
               <BrainCircuit className="w-3.5 h-3.5 text-purple-400" />
-              <span>Experto en IA & Automatización</span>
+              <span>Datos & Automatización</span>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function ProfileTab() {
             <MapPin className="h-3.5 w-3.5" /> Quito, Ecuador
           </span>
           <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300">
-            <Sparkles className="h-3.5 w-3.5 text-purple-400" /> Experto en IA & Normativa CGE NCI 400
+            <Sparkles className="h-3.5 w-3.5 text-purple-400" /> Automatización & Datos Operativos
           </span>
         </div>
 
@@ -83,8 +83,8 @@ export default function ProfileTab() {
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <div className="text-3xl lg:text-4xl font-black text-emerald-400 mb-1 font-heading tracking-tight">CGE</div>
-            <div className="text-[11px] font-bold tracking-wider uppercase text-emerald-400 mb-1">Control documentado</div>
-            <div className="text-xs text-slate-400">Informes técnicos sustentados para auditoría</div>
+            <div className="text-[11px] font-bold tracking-wider uppercase text-emerald-400 mb-1">Procesos confiables</div>
+            <div className="text-xs text-slate-400">Información lista para decidir y mejorar</div>
           </div>
 
           <div className="executive-card p-5 lg:p-6 rounded-3xl relative overflow-hidden group">
@@ -92,8 +92,8 @@ export default function ProfileTab() {
               <Cpu className="w-8 h-8" />
             </div>
             <div className="text-3xl lg:text-4xl font-black text-purple-300 mb-1 font-heading tracking-tight">Experto IA</div>
-            <div className="text-[11px] font-bold tracking-wider uppercase text-purple-400 mb-1">Habilidades & NCI 400</div>
-            <div className="text-xs text-slate-400">Aplicación de agentes de IA en procesos de automatización</div>
+            <div className="text-[11px] font-bold tracking-wider uppercase text-purple-400 mb-1">Automatización & IA</div>
+            <div className="text-xs text-slate-400">Herramientas digitales para acelerar operaciones</div>
           </div>
         </div>
 
@@ -104,9 +104,9 @@ export default function ProfileTab() {
               <FileCheck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white mb-1">Constatación Física Institucional</h3>
+              <h3 className="text-sm font-bold text-white mb-1">Control de activos e inventarios</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Inspección física, codificación con tecnología de barras/RFID y asignación formal de custodias con responsabilidad administrativa.
+                Levantamientos físicos, codificación, control de ubicaciones y asignación clara de responsables.
               </p>
             </div>
           </div>
@@ -116,9 +116,9 @@ export default function ProfileTab() {
               <BrainCircuit className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-white mb-1">Innovación con Inteligencia Artificial</h3>
+              <h3 className="text-sm font-bold text-white mb-1">Innovación aplicada al negocio</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Desarrollo de asistentes de IA preentrenados en normativa CGE para la solución inmediata de consultas legales y administrativas patrimoniales.
+                Automatización y asistentes de IA para ordenar información, acelerar consultas y reducir trabajo repetitivo.
               </p>
             </div>
           </div>
