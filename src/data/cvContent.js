@@ -3,7 +3,7 @@ export const cvContent = {
   target: {
     headline: 'Operaciones más ordenadas, datos confiables y activos bajo control.',
     summary: 'Profesional con más de 15 años de experiencia en gestión de activos, inventarios, bodegas, control documental y conciliación de información. Combino disciplina operativa, coordinación de equipos y automatización para mejorar la trazabilidad, reducir inconsistencias y apoyar decisiones oportunas.',
-    fit: 'Aporto en logística, supply chain, calidad, operaciones, activos, control interno y mejora continua, con foco en procesos claros, información confiable, seguimiento medible y resultados sostenibles.',
+    fit: 'Aporto en logística, calidad, operaciones, activos, control interno y mejora continua, con foco en procesos claros, información confiable, seguimiento medible y resultados sostenibles.',
     keywords: ['Logística', 'Inventarios', 'Calidad', 'Procesos', 'Trazabilidad', 'Mejora continua', 'Integridad', 'Trabajo colaborativo'],
   },
   experience: [
