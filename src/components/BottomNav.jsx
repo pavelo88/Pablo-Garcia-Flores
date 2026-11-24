@@ -1,12 +1,11 @@
 import React from 'react';
-import { BriefcaseBusiness, Cpu, Download, Home, MessageCircle, UserRound } from 'lucide-react';
+import { BriefcaseBusiness, Cpu, Home, MessageCircle, UserRound } from 'lucide-react';
 import { WHATSAPP_LINK } from '../utils/constants';
-import { handleDownloadCV } from '../utils/pdfGenerator';
 
 const items = [
   { id: 'profile', label: 'Inicio', Icon: Home },
   { id: 'experience', label: 'Trayectoria', Icon: BriefcaseBusiness },
-  { id: 'systems', label: 'Sistemas', Icon: Cpu },
+  { id: 'systems', label: 'Habilidades', Icon: Cpu },
   { id: 'references', label: 'Referencias', Icon: UserRound },
 ];
 
@@ -20,7 +19,6 @@ export default function BottomNav({ activeTab, setActiveTab }) {
       {items.slice(2).map(({ id, label, Icon }) => <button key={id} type="button" onClick={() => setActiveTab(id)} className={`bottom-app-nav__item ${activeTab === id ? 'is-active' : ''}`} aria-current={activeTab === id ? 'page' : undefined}>
         <Icon className="h-4 w-4" /><span>{label}</span>
       </button>)}
-      <button type="button" onClick={handleDownloadCV} className="bottom-app-nav__download" aria-label="Descargar CV"><Download className="h-4 w-4" /><span>CV</span></button>
     </div>
   </nav>;
 }

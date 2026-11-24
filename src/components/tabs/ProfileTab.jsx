@@ -2,6 +2,7 @@ import React from 'react';
 import { MapPin, ShieldCheck, Award, FileCheck, Cpu, CheckCircle2, Sparkles, BrainCircuit } from 'lucide-react';
 import ContactButtons from '../ContactButtons';
 import { cvContent } from '../../data/cvContent';
+import { handleDownloadCV } from '../../utils/pdfGenerator';
 
 export default function ProfileTab() {
   return (
@@ -12,14 +13,14 @@ export default function ProfileTab() {
           <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-purple-500"></div>
 
           {/* Centered Avatar Image */}
-          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-dynamic-avatar shadow-[0_0_30px_rgba(56,189,248,0.35)] relative mb-4">
+          <button type="button" onClick={handleDownloadCV} aria-label="Descargar CV haciendo clic en la foto" className="w-32 h-32 rounded-full overflow-hidden border-4 border-dynamic-avatar shadow-[0_0_30px_rgba(56,189,248,0.35)] relative mb-4 cursor-pointer hover:scale-105 transition-transform">
             <img
               src="/foto.png"
               alt="Pablo Fabricio García Flores"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 ring-1 ring-inset ring-white/20 rounded-full"></div>
-          </div>
+          </button>
 
           <h1 className="text-2xl font-black heading-main tracking-tight mb-1">
             Pablo Fabricio<br />García Flores

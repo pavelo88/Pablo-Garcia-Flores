@@ -4,7 +4,7 @@ import { WHATSAPP_LINK } from '../utils/constants';
 
 export default function Fab() {
   return (
-    <div className="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-50">
+    <div className="hidden lg:block fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-50">
       <a 
         href={WHATSAPP_LINK}
         target="_blank"

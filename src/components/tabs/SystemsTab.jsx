@@ -11,7 +11,7 @@ export default function SystemsTab() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl heading-main font-black mb-3">
-          Arquitectura Tecnológica & Sistemas
+          Habilidades y capacidades
         </h2>
 
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed">

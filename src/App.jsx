@@ -62,7 +62,7 @@ export default function App() {
       />
 
       {/* Responsive Layout Container (Clipping viewport scroll on mobile so text never goes under header) */}
-      <div className="flex-1 pt-28 lg:pt-10 pb-24 lg:pb-6 px-4 lg:px-10 overflow-hidden flex items-center justify-center z-10">
+      <div className="flex-1 pt-16 lg:pt-5 pb-24 lg:pb-5 px-4 lg:px-10 overflow-hidden flex items-start justify-center z-10">
         <div className="w-full h-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[330px_1fr] gap-6 lg:gap-8 lg:h-[86vh]">
 
           {/* Desktop Executive Sidebar */}

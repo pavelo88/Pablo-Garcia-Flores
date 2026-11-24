@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sun, Moon, ShieldCheck, Sparkles } from 'lucide-react';
+import { handleDownloadCV } from '../utils/pdfGenerator';
 
 export default function Sidebar({ theme, setTheme }) {
   return (
@@ -21,14 +22,14 @@ export default function Sidebar({ theme, setTheme }) {
           {/* Executive Profile Avatar Header */}
           {/* Executive Profile Avatar Header */}
           <div className="pt-1 pb-5 border-b border-white/10 mb-5 flex flex-col items-center text-center">
-            <div className="w-24 h-24 lg:w-26 lg:h-26 rounded-full overflow-hidden border-4 border-dynamic-avatar shadow-[0_0_20px_rgba(56,189,248,0.3)] relative group mb-3">
+            <button type="button" onClick={handleDownloadCV} aria-label="Descargar CV haciendo clic en la foto" className="w-24 h-24 lg:w-26 lg:h-26 rounded-full overflow-hidden border-4 border-dynamic-avatar shadow-[0_0_20px_rgba(56,189,248,0.3)] relative group mb-3 cursor-pointer hover:scale-105 transition-transform">
               <img
                 src="/foto.png"
                 alt="Pablo Fabricio García Flores"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/20 rounded-full"></div>
-            </div>
+            </button>
 
             <h1 className="text-xl lg:text-2xl heading-main font-black tracking-tight mb-1">
               Pablo Fabricio<br />García Flores

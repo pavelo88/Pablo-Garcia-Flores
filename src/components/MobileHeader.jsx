@@ -29,10 +29,10 @@ export default function MobileHeader({ theme, setTheme, activeTab, setActiveTab 
 
           <div>
             <h1 className="text-sm font-extrabold text-white theme-light:text-slate-900 leading-none flex items-center gap-1 group-hover:text-sky-300 transition-colors">
-              Pablo García
+              Pablo Fabricio García Flores
             </h1>
             <p className="text-[10px] font-bold text-sky-400 tracking-tight mt-0.5">
-              Ing. Administración
+              Ing. Administración de Empresas
             </p>
           </div>
         </button>
