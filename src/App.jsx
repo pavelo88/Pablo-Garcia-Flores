@@ -9,6 +9,7 @@ import ProfileTab from './components/tabs/ProfileTab';
 import ExperienceTab from './components/tabs/ExperienceTab';
 import SystemsTab from './components/tabs/SystemsTab';
 import ReferencesTab from './components/tabs/ReferencesTab';
+import BottomNav from './components/BottomNav';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('profile');
@@ -50,6 +51,7 @@ export default function App() {
 
       {/* Floating Action Button (Single WhatsApp Floating Bubble) */}
       <Fab />
+      <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Mobile Top Header Navigation */}
       <MobileHeader 
@@ -60,7 +62,7 @@ export default function App() {
       />
 
       {/* Responsive Layout Container (Clipping viewport scroll on mobile so text never goes under header) */}
-      <div className="flex-1 pt-28 lg:pt-10 pb-6 px-4 lg:px-10 overflow-hidden flex items-center justify-center z-10">
+      <div className="flex-1 pt-28 lg:pt-10 pb-24 lg:pb-6 px-4 lg:px-10 overflow-hidden flex items-center justify-center z-10">
         <div className="w-full h-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[330px_1fr] gap-6 lg:gap-8 lg:h-[86vh]">
 
           {/* Desktop Executive Sidebar */}
