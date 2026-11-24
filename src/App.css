@@ -44,6 +44,5 @@
 .bottom-app-nav__download { color: #c4b5fd; }
 
 @media (min-width: 1024px) {
-  .bottom-app-nav { width: 430px; left: auto; right: 34px; transform: none; bottom: 24px; }
-  .bottom-app-nav__item, .bottom-app-nav__download { font-size: 8px; }
+  .bottom-app-nav { display: none; }
 }
