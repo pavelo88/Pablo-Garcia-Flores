@@ -157,5 +157,5 @@ export const handleDownloadCV = async () => {
   doc.setDrawColor(203, 213, 225);
   doc.line(x, pageHeight - 48, pageWidth - 28, pageHeight - 48);
   textBlock(doc, 'Pablo Fabricio García Flores  |  Quito, Ecuador', x, pageHeight - 32, contentWidth, { size: 8, color: COLORS.muted, align: 'center' });
-  doc.save('CV_Pablo_Garcia_Flores_Analista_Administracion_Bienes_3.pdf');
+  doc.save('CV_Pablo_Garcia.pdf');
 };
