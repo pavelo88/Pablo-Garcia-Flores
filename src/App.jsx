@@ -63,7 +63,7 @@ export default function App() {
 
       {/* Responsive Layout Container (Clipping viewport scroll on mobile so text never goes under header) */}
       <div className="flex-1 pt-16 lg:pt-5 pb-24 lg:pb-5 px-4 lg:px-10 overflow-hidden flex items-start justify-center z-10">
-        <div className="w-full h-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[330px_1fr] gap-6 lg:gap-8 lg:h-[86vh]">
+        <div className="w-full h-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-5 lg:gap-6 lg:items-start lg:h-[calc(100vh-80px)]">
 
           {/* Desktop Executive Sidebar */}
           <Sidebar 
@@ -77,7 +77,7 @@ export default function App() {
           <main className="glass-panel overflow-hidden flex flex-col h-full rounded-3xl border border-white/10 relative">
             <div 
               ref={mainRef}
-              className="p-6 sm:p-8 lg:p-10 flex-1 overflow-y-auto custom-scrollbar scroll-smooth flex flex-col justify-between"
+              className="p-6 sm:p-8 lg:p-10 lg:pb-24 flex-1 overflow-y-auto custom-scrollbar scroll-smooth flex flex-col justify-between"
             >
               {renderTabContent()}
             </div>

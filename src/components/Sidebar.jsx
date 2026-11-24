@@ -4,7 +4,7 @@ import { handleDownloadCV } from '../utils/pdfGenerator';
 
 export default function Sidebar({ theme, setTheme }) {
   return (
-    <aside className="glass-panel hidden lg:flex flex-col h-full overflow-hidden relative rounded-3xl border border-white/10">
+    <aside className="glass-panel hidden lg:flex flex-col h-fit max-h-full overflow-hidden relative rounded-3xl border border-white/10">
       {/* Desktop Theme Toggle */}
       <div className="absolute top-5 right-5 z-20">
         <button
@@ -17,7 +17,7 @@ export default function Sidebar({ theme, setTheme }) {
         </button>
       </div>
 
-      <div className="p-5 lg:p-6 flex flex-col justify-between h-full overflow-y-auto custom-scrollbar">
+      <div className="p-5 lg:p-6 flex flex-col overflow-y-auto custom-scrollbar">
         <div>
           {/* Executive Profile Avatar Header */}
           {/* Executive Profile Avatar Header */}
@@ -47,7 +47,7 @@ export default function Sidebar({ theme, setTheme }) {
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300 text-[10px] font-semibold">
                 <Sparkles className="w-3 h-3 text-purple-400" />
-                <span>Experto en IA & Sistemas</span>
+                <span>Experto en IA & Automatización</span>
               </div>
             </div>
           </div>

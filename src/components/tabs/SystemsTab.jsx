@@ -84,7 +84,7 @@ export default function SystemsTab() {
                 <Database className="w-6 h-6" />
               </div>
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-full">
-                Sistemas ERP
+                Herramientas ERP
               </span>
             </div>
 
