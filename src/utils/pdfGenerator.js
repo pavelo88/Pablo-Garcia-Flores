@@ -1,5 +1,6 @@
 import { jsPDF } from 'jspdf';
 import { CONTACT_EMAIL, PHONE_NUMBER, WHATSAPP_LINK, WEB_LINK, LINKEDIN_URL } from './constants';
+import { cvContent } from '../data/cvContent';
 
 const COLORS = {
   navy: [31, 59, 98], slate: [36, 49, 66], muted: [91, 110, 133], blue: [31, 59, 98], cyan: [31, 59, 98], paleBlue: [234, 242, 253], white: [35, 49, 66], lightText: [35, 49, 66],
@@ -136,23 +137,23 @@ export const handleDownloadCV = async () => {
   doc.text('GARCÍA FLORES', x, y);
   y += 19;
   y = textBlock(doc, 'INGENIERO EN ADMINISTRACIÓN DE EMPRESAS', x, y, contentWidth, { size: 8.8, color: COLORS.blue, style: 'bold', lineHeight: 11 });
-  textBlock(doc, 'Especialista en activos fijos y control patrimonial', x, y + 1, contentWidth, { size: 7.8, color: COLORS.slate, lineHeight: 10 });
+  textBlock(doc, 'Gestión de activos, inventarios, procesos y trazabilidad', x, y + 1, contentWidth, { size: 7.8, color: COLORS.slate, lineHeight: 10 });
   y = 195;
 
   y = sectionTitle(doc, 'PERFIL PROFESIONAL', x, y, contentWidth);
-  y = textBlock(doc, 'Ingeniero en Administración de Empresas con más de 15 años de experiencia en el sector público, especializado en activos fijos, inventarios, constatación física, custodias y conciliación contable-patrimonial. Actualmente curso a distancia el primer período de 9 de Ingeniería en Software en UTEL México.', x, y, contentWidth, { size: 9, lineHeight: 13 }) + 15;
+  y = textBlock(doc, cvContent.target.summary, x, y, contentWidth, { size: 9, lineHeight: 13 }) + 8;
+  y = textBlock(doc, cvContent.target.fit, x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 15;
 
   y = sectionTitle(doc, 'EXPERIENCIA RELEVANTE', x, y, contentWidth);
-  y = textBlock(doc, 'Consejo de la Judicatura del Ecuador | 8 años', x, y, contentWidth, { size: 9, color: COLORS.navy, style: 'bold', lineHeight: 13 });
-  y = textBlock(doc, 'Analista de Contratación Pública, con funciones especializadas en activos fijos: levantamientos físicos, conciliaciones contable-patrimoniales, inspecciones nacionales e informes de baja, remate y custodia.', x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 10;
-  y = textBlock(doc, 'Registro Civil del Ecuador | 7 años', x, y, contentWidth, { size: 9, color: COLORS.navy, style: 'bold', lineHeight: 13 });
-  y = textBlock(doc, 'Encargado de producción, control de especies valoradas e inventario. Inventarios masivos, custodia de activos fijos, actas de entrega-recepción y digitalización de catastros.', x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 15;
+  cvContent.experience.forEach((item) => {
+    y = textBlock(doc, `${item.company} | ${item.period}`, x, y, contentWidth, { size: 9, color: COLORS.navy, style: 'bold', lineHeight: 13 });
+    y = textBlock(doc, `${item.role}. ${item.description} ${item.achievements.join(' ')}`, x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 10;
+  });
 
   y = sectionTitle(doc, 'DECLARACIÓN DE INTERÉS', x, y, contentWidth);
-  y = textBlock(doc, 'Mi experiencia en control patrimonial, inventarios y administración pública me permite aportar desde el primer día al cumplimiento, orden y trazabilidad de la gestión de bienes. Quedo disponible para una entrevista y para presentar los respaldos correspondientes.', x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 15;
+  y = textBlock(doc, 'Estoy interesado en aportar en procesos de logística, calidad, inventarios, activos, control interno y mejora continua. Quedo disponible para una entrevista y para presentar los respaldos correspondientes.', x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 15;
   y = sectionTitle(doc, 'REFERENCIAS INSTITUCIONALES', x, y, contentWidth);
-  y = textBlock(doc, 'Ing. Audelith Cárdenas - Jefa Departamental de Activos Fijos, Consejo de la Judicatura del Ecuador.', x, y, contentWidth, { size: 8.5, lineHeight: 12 }) + 7;
-  textBlock(doc, 'Johana Cruz - Supervisora de Cedulación y Pasaportes, Dirección Provincial del Registro Civil, Identificación y Cedulación.', x, y, contentWidth, { size: 8.5, lineHeight: 12 });
+  cvContent.references.forEach((reference, index) => { y = textBlock(doc, reference, x, y, contentWidth, { size: 8.5, lineHeight: 12 }) + (index === cvContent.references.length - 1 ? 0 : 7); });
   doc.setDrawColor(203, 213, 225);
   doc.line(x, pageHeight - 48, pageWidth - 28, pageHeight - 48);
   textBlock(doc, 'Pablo Fabricio García Flores  |  Quito, Ecuador', x, pageHeight - 32, contentWidth, { size: 8, color: COLORS.muted, align: 'center' });

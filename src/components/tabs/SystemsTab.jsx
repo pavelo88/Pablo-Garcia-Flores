@@ -15,7 +15,7 @@ export default function SystemsTab() {
         </h2>
 
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed">
-          Modernización de la administración pública mediante el diseño de herramientas automatizadas, integración con ERP/SAP y la aplicación de Inteligencia Artificial para el cumplimiento normativo CGE.
+          Herramientas y criterios aplicables a operaciones donde la calidad del dato, la trazabilidad y la mejora continua sostienen el servicio logístico y comercial.
         </p>
 
         {/* Systems Cards Grid */}
@@ -35,11 +35,11 @@ export default function SystemsTab() {
             </div>
 
             <h3 className="text-xl font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">
-              Levantamiento Inteligente & Código de Barras
+              Inventarios y trazabilidad operativa
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify">
-              Arquitectura, desarrollo y despliegue Full-Stack de la plataforma comercial energyengine.es. Implementación estructurada con frameworks modernos para favorecer el rendimiento, la escalabilidad y la optimización algorítmica para indexación avanzada (SEO/LLMO).
+              Diseño de flujos para levantamientos físicos, codificación, custodias y conciliación de información, con foco en orden, evidencia y continuidad operativa.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
@@ -63,11 +63,11 @@ export default function SystemsTab() {
             </div>
 
             <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
-              Automatización Legal Normativa CGE
+              Automatización y control documental
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Configuración de agentes inteligentes instruidos con la NCI 400 y jurisprudencia administrativa para la absolución inmediata de consultas sobre bajas, remates y transferencias.
+              Uso de herramientas digitales y apoyo con IA para estructurar información, acelerar consultas y preparar informes consistentes para la toma de decisiones.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
@@ -89,11 +89,11 @@ export default function SystemsTab() {
             </div>
 
             <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
-              Conciliación Contable SAP & ERP Estatal
+              Procesos, calidad y mejora continua
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Estructuración de datos masivos para migración y emparejamiento con módulos de activos fijos en plataformas ERP institucionales (depreciaciones, revalorización y cuentas de orden).
+              Estandarización de controles, matrices e informes para reducir inconsistencias y facilitar auditorías, revisiones y seguimiento de compromisos.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
@@ -114,11 +114,11 @@ export default function SystemsTab() {
             </div>
 
             <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">
-              Expedientes & Trazabilidad de Custodias
+              Coordinación y cumplimiento
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Generación automatizada de expedientes de custodias individuales, actas institucionales y matrices de trazabilidad preparadas para exámenes especiales de auditoría.
+              Coordinación con distintas unidades para asegurar documentación completa, responsabilidad definida y ejecución alineada con procedimientos y normativa.
             </p>
 
             <div className="flex flex-wrap gap-1.5">

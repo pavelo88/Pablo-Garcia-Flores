@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, ShieldCheck, Award, FileCheck, Cpu, CheckCircle2, Sparkles, BrainCircuit } from 'lucide-react';
 import ContactButtons from '../ContactButtons';
+import { cvContent } from '../../data/cvContent';
 
 export default function ProfileTab() {
   return (
@@ -31,7 +32,7 @@ export default function ProfileTab() {
           <div className="flex flex-wrap justify-center items-center gap-1.5">
             <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/30 text-dynamic-badge text-[11px] font-bold">
               <ShieldCheck className="w-3.5 h-3.5 text-dynamic-role" />
-              <span>Control Patrimonial & CGE</span>
+              <span>{cvContent.target.keywords[0]} & {cvContent.target.keywords[1]}</span>
             </div>
             <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-400/30 text-purple-300 text-[11px] font-bold">
               <BrainCircuit className="w-3.5 h-3.5 text-purple-400" />
@@ -52,16 +53,16 @@ export default function ProfileTab() {
 
         {/* Headline */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl heading-main font-black mb-6 leading-[1.15]">
-          Dirección Estratégica & Transparencia en Bienes Públicos.
+          {cvContent.target.headline}
         </h2>
 
         {/* Bio */}
         <div className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mb-8 font-normal text-justify space-y-4">
           <p>
-            Ingeniero en Administración de Empresas con más de 15 años de experiencia en el sector público. He ocupado el cargo de <strong className="font-bold text-white">Analista de Contratación Pública</strong>, ejecutando actividades especializadas en control patrimonial estatal, activos fijos, inventarios y gestión de bienes.
+            {cvContent.target.summary}
           </p>
           <p>
-            Combino un <strong className="font-bold text-white">sólido liderazgo de equipos y visión estratégica</strong> con la implementación de agentes de IA y sistemas automatizados de código de barras, fortaleciendo la trazabilidad, la transparencia y la conciliación contable-patrimonial.
+            {cvContent.target.fit}
           </p>
         </div>
 
