@@ -141,19 +141,19 @@ export const handleDownloadCV = async () => {
   y = 195;
 
   y = sectionTitle(doc, 'PERFIL PROFESIONAL', x, y, contentWidth);
-  y = textBlock(doc, cvContent.target.summary, x, y, contentWidth, { size: 9, lineHeight: 13 }) + 8;
-  y = textBlock(doc, cvContent.target.fit, x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 15;
+  y = textBlock(doc, cvContent.target.summary, x, y, contentWidth, { size: 9, lineHeight: 13, align: 'justify' }) + 8;
+  y = textBlock(doc, cvContent.target.fit, x, y, contentWidth, { size: 8.7, lineHeight: 12, align: 'justify' }) + 15;
 
   y = sectionTitle(doc, 'EXPERIENCIA RELEVANTE', x, y, contentWidth);
   cvContent.experience.forEach((item) => {
     y = textBlock(doc, `${item.company} | ${item.period}`, x, y, contentWidth, { size: 9, color: COLORS.navy, style: 'bold', lineHeight: 13 });
-    y = textBlock(doc, `${item.role}. ${item.description} ${item.achievements.join(' ')}`, x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 10;
+    y = textBlock(doc, `${item.role}. ${item.description} ${item.achievements.join(' ')}`, x, y, contentWidth, { size: 8.7, lineHeight: 12, align: 'justify' }) + 10;
   });
 
   y = sectionTitle(doc, 'DECLARACIÓN DE INTERÉS', x, y, contentWidth);
-  y = textBlock(doc, cvContent.target.fit, x, y, contentWidth, { size: 8.7, lineHeight: 12 }) + 15;
+  y = textBlock(doc, cvContent.target.fit, x, y, contentWidth, { size: 8.7, lineHeight: 12, align: 'justify' }) + 15;
   y = sectionTitle(doc, 'REFERENCIAS PROFESIONALES', x, y, contentWidth);
-  cvContent.references.forEach((reference, index) => { y = textBlock(doc, reference, x, y, contentWidth, { size: 8.5, lineHeight: 12 }) + (index === cvContent.references.length - 1 ? 0 : 7); });
+  cvContent.references.forEach((reference, index) => { y = textBlock(doc, reference, x, y, contentWidth, { size: 8.5, lineHeight: 12, align: 'justify' }) + (index === cvContent.references.length - 1 ? 0 : 7); });
   doc.setDrawColor(203, 213, 225);
   doc.line(x, pageHeight - 48, pageWidth - 28, pageHeight - 48);
   textBlock(doc, 'Pablo Fabricio García Flores  |  Quito, Ecuador', x, pageHeight - 32, contentWidth, { size: 8, color: COLORS.muted, align: 'center' });
