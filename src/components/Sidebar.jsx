@@ -1,14 +1,7 @@
 import React from 'react';
-import { User, Briefcase, Database, UserCheck, Sun, Moon, ShieldCheck, Sparkles } from 'lucide-react';
+import { Sun, Moon, ShieldCheck, Sparkles } from 'lucide-react';
 
-const navItems = [
-  { id: 'profile', icon: User, label: 'Perfil Ejecutivo', badge: 'Principal' },
-  { id: 'experience', icon: Briefcase, label: 'Trayectoria', badge: '15 Años' },
-  { id: 'systems', icon: Database, label: 'Arquitectura & IA', badge: 'Experto IA' },
-  { id: 'references', icon: UserCheck, label: 'Referencias', badge: 'Avales' },
-];
-
-export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
+export default function Sidebar({ theme, setTheme }) {
   return (
     <aside className="glass-panel hidden lg:flex flex-col h-full overflow-hidden relative rounded-3xl border border-white/10">
       {/* Desktop Theme Toggle */}
@@ -58,37 +51,6 @@ export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
             </div>
           </div>
 
-          {/* Navigation Section */}
-          <div>
-            <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-2.5 px-1">
-              Navegación Principal
-            </div>
-            <nav className="flex flex-col gap-2">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const isActive = activeTab === item.id;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => setActiveTab(item.id)}
-                    className={`nav-button flex items-center justify-between px-3.5 py-3 rounded-2xl font-semibold text-xs lg:text-sm transition-all border ${isActive
-                      ? 'bg-sky-500/20 border-sky-400/50 text-white shadow-[0_0_15px_rgba(56,189,248,0.25)]'
-                      : 'bg-white/5 border-transparent text-slate-300 hover:bg-white/10 hover:border-white/10'
-                      }`}
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Icon className={`w-4 h-4 ${isActive ? 'text-sky-300' : 'text-slate-400'}`} />
-                      <span>{item.label}</span>
-                    </div>
-                    <span className={`text-[9px] font-extrabold py-0.5 rounded-full w-20 min-w-[80px] text-center shrink-0 ${isActive ? 'bg-sky-400/30 text-sky-200' : 'bg-slate-800/60 text-slate-400'
-                      }`}>
-                      {item.badge}
-                    </span>
-                  </button>
-                );
-              })}
-            </nav>
-          </div>
         </div>
 
 
