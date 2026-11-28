@@ -24,7 +24,26 @@ const textBlock = (doc, text, x, y, width, options = {}) => {
   doc.setTextColor(...color);
   const lines = doc.splitTextToSize(text, width);
   const textX = align === 'center' ? x + width / 2 : x;
-  doc.text(lines, textX, y, { align, lineHeightFactor: lineHeight / size });
+  if (align === 'justify') {
+    lines.forEach((line, index) => {
+      const lineY = y + index * lineHeight;
+      const words = line.trim().split(/\s+/);
+      const isLastLine = index === lines.length - 1;
+      if (isLastLine || words.length < 2) {
+        doc.text(line, x, lineY, { lineHeightFactor: lineHeight / size });
+        return;
+      }
+      const wordsWidth = words.reduce((total, word) => total + doc.getTextWidth(word), 0);
+      const gap = (width - wordsWidth) / (words.length - 1);
+      let cursor = x;
+      words.forEach((word) => {
+        doc.text(word, cursor, lineY, { lineHeightFactor: lineHeight / size });
+        cursor += doc.getTextWidth(word) + gap;
+      });
+    });
+  } else {
+    doc.text(lines, textX, y, { align, lineHeightFactor: lineHeight / size });
+  }
   if (url) {
     lines.forEach((line, index) => {
       const lineWidth = doc.getTextWidth(line);
@@ -65,7 +84,7 @@ const drawSidebar = (doc, width, height, photoDataUrl) => {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(1);
   doc.setTextColor(202, 216, 233);
-  doc.text('Experiencia en operaciones, inventarios, activos y mejora continua; profesional orientado a resultados y trazabilidad.', centerX, centerY, { align: 'center', maxWidth: 90 });
+  doc.text('Control interno operativo, control patrimonial, revisión documental, conciliación, seguimiento de novedades, mejora de procesos y automatización de informes.', centerX, centerY, { align: 'center', maxWidth: 90 });
   doc.addImage(photoDataUrl, 'PNG', photoX, photoY, photoSize, photoSize);
   doc.setDrawColor(202, 216, 233);
   doc.setLineWidth(24);
@@ -93,7 +112,7 @@ const drawSidebar = (doc, width, height, photoDataUrl) => {
   doc.text('ESPECIALIDADES', 20, y);
   doc.line(20, y + 5, sidebarWidth - 20, y + 5);
   y += 21;
-  ['Activos e inventarios', 'Bodegas y trazabilidad', 'Control de ubicaciones', 'Procesos y calidad', 'Conciliación de información', 'Indicadores e informes', 'Códigos de barras y RFID', 'Automatización e inteligencia artificial', 'Liderazgo y coordinación', 'Herramientas digitales'].forEach((item) => {
+  ['Control interno operativo', 'Control patrimonial', 'Revisión documental', 'Contratos, facturas y CUR', 'Actas de entrega-recepción', 'Conciliación de información', 'Seguimiento de novedades', 'Procesos y mejora continua', 'Excel + VBA', 'Google Sheets + Apps Script'].forEach((item) => {
     y = textBlock(doc, `• ${item}`, 20, y, sidebarWidth - 38, { size: 7.8, color: COLORS.white, lineHeight: 13 });
   });
 
@@ -115,7 +134,9 @@ export const handleDownloadCV = async () => {
   const pageHeight = doc.internal.pageSize.getHeight();
   const sidebarWidth = 190;
   const x = sidebarWidth + 30;
-  const contentWidth = pageWidth - x - 34;
+  // Keep a real right margin: the PDF text must stay inside the visible column
+  // even when jsPDF's font metrics differ slightly from the browser preview.
+  const contentWidth = pageWidth - x - 55;
 
   try {
     drawSidebar(doc, pageWidth, pageHeight, await loadImage('/foto.png'));

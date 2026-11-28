@@ -1,6 +1,5 @@
 import React from 'react';
 import { Cpu, QrCode, Database, Bot, Sparkles, FileCheck2 } from 'lucide-react';
-import ContactButtons from '../ContactButtons';
 
 export default function SystemsTab() {
   return (
@@ -14,7 +13,7 @@ export default function SystemsTab() {
           Habilidades y capacidades
         </h2>
 
-        <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-300 max-w-3xl mb-8 leading-relaxed text-justify">
           Herramientas y criterios aplicables a operaciones donde la calidad del dato, la trazabilidad y la mejora continua sostienen el servicio logístico y comercial.
         </p>
 
@@ -45,7 +44,7 @@ export default function SystemsTab() {
             <div className="flex flex-wrap gap-1.5">
               <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Next.js</span>
               <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Node.js</span>
-              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">SEO/LLMO</span>
+              <span className="text-[10px] font-semibold text-slate-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">Control patrimonial</span>
             </div>
           </div>
 
@@ -66,14 +65,14 @@ export default function SystemsTab() {
               Automatización y control documental
             </h3>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify">
               Uso de herramientas digitales y apoyo con IA para estructurar información, acelerar consultas y preparar informes consistentes para la toma de decisiones.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
               <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">Agentes IA</span>
-              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">NCI 400 CGE</span>
-              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">Asistencia Legal</span>
+              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">Informes con revisión</span>
+              <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 border border-purple-400/20 px-2.5 py-1 rounded-lg">Apps Script</span>
             </div>
           </div>
 
@@ -92,13 +91,13 @@ export default function SystemsTab() {
               Procesos, calidad y mejora continua
             </h3>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Estandarización de controles, matrices e informes para reducir inconsistencias y facilitar auditorías, revisiones y seguimiento de compromisos.
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify">
+              Estandarización de controles, informes y seguimiento para reducir inconsistencias y facilitar revisiones documentales y planes de acción.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
-              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-lg">SAP Asset Mgmt</span>
-              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-lg">Depreciaciones</span>
+              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-lg">Excel + VBA</span>
+              <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-2.5 py-1 rounded-lg">Google Sheets</span>
             </div>
           </div>
 
@@ -109,7 +108,7 @@ export default function SystemsTab() {
                 <FileCheck2 className="w-6 h-6" />
               </div>
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-400/20 px-2.5 py-1 rounded-full">
-                Auditoría Ready
+                Revisión y cumplimiento
               </span>
             </div>
 
@@ -117,8 +116,8 @@ export default function SystemsTab() {
               Coordinación y cumplimiento
             </h3>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-              Coordinación con distintas unidades para asegurar documentación completa, responsabilidad definida y ejecución alineada con procedimientos y normativa.
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify">
+              Coordinación con distintas unidades para asegurar documentación completa, responsables identificados y ejecución alineada con procedimientos.
             </p>
 
             <div className="flex flex-wrap gap-1.5">
@@ -130,7 +129,6 @@ export default function SystemsTab() {
         </div>
       </div>
 
-      <ContactButtons />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Building2, Calendar, Award, CheckCircle2, ShieldCheck } from 'lucide-react';
-import ContactButtons from '../ContactButtons';
 import { cvContent } from '../../data/cvContent';
 
 export default function ExperienceTab() {
@@ -14,6 +13,6 @@ export default function ExperienceTab() {
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{item.role}</h3><p className="text-sm text-slate-300 leading-relaxed mb-4">{item.description}</p><div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10 text-xs text-slate-300">{item.achievements.map((achievement) => <div key={achievement} className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" /><span>{achievement}</span></div>)}</div>
           </div></div>)}
       </div>
-    </div><ContactButtons />
+    </div>
   </div>;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Download } from 'lucide-react';
+import { handleDownloadCV } from '../utils/pdfGenerator';
 
 export default function MobileHeader({ theme, setTheme, activeTab, setActiveTab }) {
 
@@ -37,15 +38,27 @@ export default function MobileHeader({ theme, setTheme, activeTab, setActiveTab 
           </div>
         </button>
 
-        {/* Right Side: Theme Toggle Button */}
-        <button
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="p-2 bg-white/5 theme-light:bg-black/5 hover:bg-white/10 border border-white/15 theme-light:border-slate-300 rounded-xl text-white theme-light:text-slate-800 transition-all active:scale-95 shadow-sm"
-          title="Cambiar tema"
-          aria-label="Cambiar tema"
-        >
-          {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-300" /> : <Moon className="w-4 h-4 text-sky-600" />}
-        </button>
+        {/* Right Side: PDF + Theme Toggle */}
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={handleDownloadCV}
+            className="h-10 min-w-10 px-1.5 flex flex-col items-center justify-center gap-0.5 bg-white/5 theme-light:bg-black/5 hover:bg-white/10 border border-white/15 theme-light:border-slate-300 rounded-xl text-white theme-light:text-slate-800 transition-all active:scale-95 shadow-sm"
+            title="Descargar PDF"
+            aria-label="Descargar PDF"
+          >
+            <Download className="w-3.5 h-3.5 text-sky-300" />
+            <span className="text-[8px] leading-none font-extrabold tracking-wide">PDF</span>
+          </button>
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="p-2 bg-white/5 theme-light:bg-black/5 hover:bg-white/10 border border-white/15 theme-light:border-slate-300 rounded-xl text-white theme-light:text-slate-800 transition-all active:scale-95 shadow-sm"
+            title="Cambiar tema"
+            aria-label="Cambiar tema"
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-300" /> : <Moon className="w-4 h-4 text-sky-600" />}
+          </button>
+        </div>
       </div>
 
     </header>

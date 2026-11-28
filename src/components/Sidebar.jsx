@@ -1,9 +1,10 @@
 import React from 'react';
-import { Sun, Moon, ShieldCheck, Sparkles, User, Briefcase, Cpu, UserCheck } from 'lucide-react';
+import { Sun, Moon, User, Briefcase, Cpu, UserCheck, Download, Globe, Mail, Phone, MessageCircle } from 'lucide-react';
 import { handleDownloadCV } from '../utils/pdfGenerator';
+import { LINKEDIN_URL, MAIL_TO_LINK, PHONE_NUMBER, WHATSAPP_LINK } from '../utils/constants';
 
 const navItems = [
-  { id: 'profile', icon: User, label: 'Inicio', badge: 'Principal' },
+  { id: 'profile', icon: User, label: 'Perfil', badge: '' },
   { id: 'experience', icon: Briefcase, label: 'Trayectoria', badge: '15 años' },
   { id: 'systems', icon: Cpu, label: 'Habilidades', badge: 'Perfil' },
   { id: 'references', icon: UserCheck, label: 'Referencias', badge: 'Avales' },
@@ -11,7 +12,7 @@ const navItems = [
 
 export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
   return (
-    <aside className="glass-panel hidden lg:flex flex-col h-fit max-h-full overflow-hidden relative rounded-3xl border border-white/10">
+    <aside className="glass-panel hidden lg:flex flex-col h-full max-h-full overflow-hidden relative rounded-3xl border border-white/10">
       {/* Desktop Theme Toggle */}
       <div className="absolute top-5 right-5 z-20">
         <button
@@ -24,7 +25,7 @@ export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
         </button>
       </div>
 
-      <div className="p-5 lg:p-6 flex flex-col overflow-y-auto custom-scrollbar">
+      <div className="p-5 lg:p-6 flex flex-col h-full overflow-y-auto custom-scrollbar">
         <div>
           {/* Executive Profile Avatar Header */}
           {/* Executive Profile Avatar Header */}
@@ -46,17 +47,6 @@ export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
               Ing. Administración de Empresas
             </p>
 
-            {/* Badges */}
-            <div className="flex flex-col items-center gap-1 w-full">
-              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sky-500/10 border border-sky-400/20 text-dynamic-badge text-[11px] font-semibold">
-                <ShieldCheck className="w-3.5 h-3.5 text-dynamic-role" />
-                <span>Control Patrimonial & CGE</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300 text-[10px] font-semibold">
-                <Sparkles className="w-3 h-3 text-purple-400" />
-                <span>Datos & Automatización</span>
-              </div>
-            </div>
           </div>
 
           <nav className="flex flex-col gap-2" aria-label="Navegación principal de escritorio">
@@ -64,10 +54,21 @@ export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
               const isActive = activeTab === id;
               return <button key={id} type="button" onClick={() => setActiveTab(id)} className={`nav-button flex items-center justify-between px-3.5 py-3 rounded-2xl font-semibold text-xs lg:text-sm transition-all border ${isActive ? 'bg-sky-500/20 border-sky-400/50 text-white shadow-[0_0_15px_rgba(56,189,248,0.25)]' : 'bg-white/5 border-transparent text-slate-300 hover:bg-white/10 hover:border-white/10'}`}>
                 <span className="flex items-center gap-2.5"><Icon className={`w-4 h-4 ${isActive ? 'text-sky-300' : 'text-slate-400'}`} />{label}</span>
-                <span className={`text-[9px] font-extrabold py-0.5 rounded-full w-16 text-center shrink-0 ${isActive ? 'bg-sky-400/30 text-sky-200' : 'bg-slate-800/60 text-slate-400'}`}>{badge}</span>
+                {badge && <span className={`text-[9px] font-extrabold py-0.5 rounded-full w-16 text-center shrink-0 ${isActive ? 'bg-sky-400/30 text-sky-200' : 'bg-slate-800/60 text-slate-400'}`}>{badge}</span>}
               </button>;
             })}
           </nav>
+
+          <div className="mt-6 pt-5 border-t border-white/10">
+            <p className="text-[9px] font-extrabold uppercase tracking-[0.18em] text-slate-400 mb-3">Contacto directo</p>
+            <div className="grid grid-cols-5 gap-2">
+              <button type="button" onClick={handleDownloadCV} className="h-10 rounded-xl border border-cyan-400/30 bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 transition-colors flex items-center justify-center" aria-label="Descargar PDF" title="Descargar PDF"><Download className="w-4 h-4" /></button>
+              <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="h-10 rounded-xl border border-blue-400/30 bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 transition-colors flex items-center justify-center" aria-label="LinkedIn" title="LinkedIn"><Globe className="w-4 h-4" /></a>
+              <a href={MAIL_TO_LINK} className="h-10 rounded-xl border border-purple-400/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 transition-colors flex items-center justify-center" aria-label="Correo" title="Correo"><Mail className="w-4 h-4" /></a>
+              <a href={`tel:${PHONE_NUMBER}`} className="h-10 rounded-xl border border-sky-400/30 bg-sky-500/10 text-sky-300 hover:bg-sky-500/20 transition-colors flex items-center justify-center" aria-label="Llamada" title="Llamada"><Phone className="w-4 h-4" /></a>
+              <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="h-10 rounded-xl border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 transition-colors flex items-center justify-center" aria-label="WhatsApp" title="WhatsApp"><MessageCircle className="w-4 h-4" /></a>
+            </div>
+          </div>
 
         </div>
 

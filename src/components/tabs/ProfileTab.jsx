@@ -1,6 +1,5 @@
 import React from 'react';
 import { MapPin, ShieldCheck, Award, FileCheck, Cpu, CheckCircle2, Sparkles, BrainCircuit } from 'lucide-react';
-import ContactButtons from '../ContactButtons';
 import { cvContent } from '../../data/cvContent';
 import { handleDownloadCV } from '../../utils/pdfGenerator';
 
@@ -33,7 +32,7 @@ export default function ProfileTab() {
           <div className="flex flex-wrap justify-center items-center gap-1.5">
             <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/30 text-dynamic-badge text-[11px] font-bold">
               <ShieldCheck className="w-3.5 h-3.5 text-dynamic-role" />
-              <span>{cvContent.target.keywords[0]} & {cvContent.target.keywords[1]}</span>
+              <span>Control Operativo & Activos</span>
             </div>
             <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-400/30 text-purple-300 text-[11px] font-bold">
               <BrainCircuit className="w-3.5 h-3.5 text-purple-400" />
@@ -58,12 +57,12 @@ export default function ProfileTab() {
         </h2>
 
         {/* Bio */}
-        <div className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mb-8 font-normal text-justify space-y-4">
+        <div className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl mb-8 font-normal text-justify space-y-4">
           <p>
             {cvContent.target.summary}
           </p>
           <p>
-            {cvContent.target.fit}
+            {cvContent.target.secondLine}
           </p>
         </div>
 
@@ -82,18 +81,18 @@ export default function ProfileTab() {
             <div className="absolute top-4 right-4 text-emerald-400/20 group-hover:text-emerald-400/40 transition-colors">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <div className="text-3xl lg:text-4xl font-black text-emerald-400 mb-1 font-heading tracking-tight">CGE</div>
-            <div className="text-[11px] font-bold tracking-wider uppercase text-emerald-400 mb-1">Procesos confiables</div>
-            <div className="text-xs text-slate-400">Información lista para decidir y mejorar</div>
+            <div className="text-2xl lg:text-3xl font-black text-emerald-400 mb-1 font-heading tracking-tight">Control</div>
+            <div className="text-[11px] font-bold tracking-wider uppercase text-emerald-400 mb-1">Control operativo</div>
+            <div className="text-xs text-slate-400">Evidencia, seguimiento y consistencia</div>
           </div>
 
           <div className="executive-card p-5 lg:p-6 rounded-3xl relative overflow-hidden group">
             <div className="absolute top-4 right-4 text-purple-400/20 group-hover:text-purple-400/40 transition-colors">
               <Cpu className="w-8 h-8" />
             </div>
-            <div className="text-3xl lg:text-4xl font-black text-purple-300 mb-1 font-heading tracking-tight">Experto IA</div>
-            <div className="text-[11px] font-bold tracking-wider uppercase text-purple-400 mb-1">Automatización & IA</div>
-            <div className="text-xs text-slate-400">Herramientas digitales para acelerar operaciones</div>
+            <div className="pr-10 text-xl lg:text-2xl font-black text-purple-300 mb-1 font-heading tracking-tight leading-tight">Automatización</div>
+            <div className="text-[11px] font-bold tracking-wider uppercase text-purple-400 mb-1">Informes & seguimiento</div>
+            <div className="text-xs text-slate-400">Herramientas digitales con revisión profesional</div>
           </div>
         </div>
 
@@ -125,8 +124,6 @@ export default function ProfileTab() {
         </div>
       </div>
 
-      {/* Action Buttons */}
-      <ContactButtons />
     </div>
   );
 }

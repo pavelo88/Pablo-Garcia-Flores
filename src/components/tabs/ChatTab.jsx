@@ -78,8 +78,8 @@ export default function ChatTab({ messages, setMessages }) {
     <div className="flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700">
       <div className="mb-4 flex items-center justify-between shrink-0">
         <div>
-          <h2 className="text-2xl lg:text-3xl heading-main mb-1">Auditor IA</h2>
-          <p className="text-xs text-slate-400">Consultor interactivo sobre normativa CGE y NCI 400</p>
+          <h2 className="text-2xl lg:text-3xl heading-main mb-1">Asistente de Procesos</h2>
+          <p className="text-xs text-slate-400">Consultor interactivo sobre activos, procesos y documentación</p>
         </div>
         <div className="p-2 bg-sky-500/10 rounded-full border border-sky-500/20">
           <Bot className="w-5 h-5 text-sky-400" />

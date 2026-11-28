@@ -1,6 +1,6 @@
 import React from 'react';
-import { Phone, Globe, Mail, Download } from 'lucide-react';
-import { LINKEDIN_URL, PHONE_NUMBER, MAIL_TO_LINK } from '../utils/constants';
+import { Phone, Globe, Mail, Download, MessageCircle } from 'lucide-react';
+import { LINKEDIN_URL, PHONE_NUMBER, MAIL_TO_LINK, WHATSAPP_LINK } from '../utils/constants';
 import { handleDownloadCV } from '../utils/pdfGenerator';
 
 export default function ContactButtons() {
@@ -10,7 +10,7 @@ export default function ContactButtons() {
         Contacto Directo & Descargas
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
 
         {/* 1. Descargar CV */}
         <button
@@ -48,6 +48,17 @@ export default function ContactButtons() {
         >
           <Phone className="w-3.5 h-3.5 text-sky-400 shrink-0" />
           <span>Llamada</span>
+        </a>
+
+        {/* 5. WhatsApp */}
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-center gap-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 hover:text-white py-3 px-1.5 sm:px-3 rounded-2xl font-bold text-[10px] sm:text-xs tracking-tight border border-emerald-400/30 transition-all shadow-sm hover:shadow-emerald-500/20 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap"
+        >
+          <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+          <span>WhatsApp</span>
         </a>
 
       </div>

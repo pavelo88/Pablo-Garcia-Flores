@@ -1,6 +1,5 @@
 import React from 'react';
 import { UserCheck, Building2, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import ContactButtons from '../ContactButtons';
 
 export default function ReferencesTab() {
   const referencesList = [
@@ -91,7 +90,6 @@ export default function ReferencesTab() {
         </div>
       </div>
 
-      <ContactButtons />
     </div>
   );
 }

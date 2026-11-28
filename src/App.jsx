@@ -3,7 +3,6 @@ import './App.css';
 
 // Components
 import MobileHeader from './components/MobileHeader';
-import Fab from './components/Fab';
 import Sidebar from './components/Sidebar';
 import ProfileTab from './components/tabs/ProfileTab';
 import ExperienceTab from './components/tabs/ExperienceTab';
@@ -49,8 +48,6 @@ export default function App() {
       <div className="bg-buildings"></div>
       <div className="bg-overlay"></div>
 
-      {/* Floating Action Button (Single WhatsApp Floating Bubble) */}
-      <Fab />
       <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Mobile Top Header Navigation */}
@@ -63,7 +60,7 @@ export default function App() {
 
       {/* Responsive Layout Container (Clipping viewport scroll on mobile so text never goes under header) */}
       <div className="flex-1 pt-16 lg:pt-5 pb-24 lg:pb-5 px-4 lg:px-10 overflow-hidden flex items-start justify-center z-10">
-        <div className="w-full h-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-5 lg:gap-6 lg:items-start lg:h-[calc(100vh-80px)]">
+        <div className="w-full h-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-5 lg:gap-6 lg:items-stretch lg:h-full">
 
           {/* Desktop Executive Sidebar */}
           <Sidebar 
