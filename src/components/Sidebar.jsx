@@ -12,7 +12,7 @@ const navItems = [
 
 export default function Sidebar({ activeTab, setActiveTab, theme, setTheme }) {
   return (
-    <aside className="glass-panel hidden lg:flex flex-col h-full max-h-full overflow-hidden relative rounded-3xl border border-white/10">
+    <aside className="glass-panel glass-panel-strong hidden lg:flex flex-col h-full max-h-full overflow-hidden relative rounded-3xl border border-white/10">
       {/* Desktop Theme Toggle */}
       <div className="absolute top-5 right-5 z-20">
         <button

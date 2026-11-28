@@ -18,6 +18,7 @@
 
   /* ---> MODO OSCURO: TRANSPARENCIA DEL CUADRO DE CRISTAL PRINCIPAL <--- */
   --glass-bg: rgba(15, 23, 42, 0.22);
+  --glass-bg-strong: rgba(15, 23, 42, 0.30);
   /* Modifica este 0.22 para cambiar la transparencia */
 
   --glass-border: rgba(255, 255, 255, 0.12);
@@ -56,6 +57,7 @@
 
   /* ---> MODO CLARO: TRANSPARENCIA DEL CUADRO DE CRISTAL PRINCIPAL <--- */
   --glass-bg: rgba(255, 255, 255, 0.29);
+  --glass-bg-strong: rgba(255, 255, 255, 0.38);
   /* Modifica este 0.28 para cambiar la transparencia */
 
   --glass-border: rgba(15, 23, 42, 0.08);
@@ -150,6 +152,10 @@ body {
   box-shadow: var(--glass-shadow);
   border-radius: 24px;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel-strong {
+  background: var(--glass-bg-strong);
 }
 
 .executive-card {

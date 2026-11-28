@@ -71,7 +71,7 @@ export default function App() {
           />
 
           {/* Primary Viewport Content Glass Panel */}
-          <main className="glass-panel overflow-hidden flex flex-col h-full rounded-3xl border border-white/10 relative">
+          <main className="glass-panel glass-panel-strong overflow-hidden flex flex-col h-full rounded-3xl border border-white/10 relative">
             <div 
               ref={mainRef}
               className="p-6 sm:p-8 lg:p-10 lg:pb-24 flex-1 overflow-y-auto custom-scrollbar scroll-smooth flex flex-col justify-between"
